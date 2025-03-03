@@ -8,18 +8,25 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION}  />
 	</head>
 	<body>
 		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
+		<main class="flex flex-col justify-center items-center min-h-screen gap-12 border-2 border-red-500 w-screen ">
+			<div class="flex gap-30 p-9 border-2 border-red-500 bg-white shadow-lg rounded-2xl w-full">
+			  <div class="border-2 border-red-500">
+				<h1 class="font-family-atkinson text-2xl font-bold">NERVUX Neurotechnology</h1>
+			  </div>
+			  <div class="border-2 border-red-500">
+				<p class="font-family-atkinson text-lg font-normal text-gray-700">
+				  NERVUX Neurotechnology es una empresa especializada en neurotecnologías para la optimización de la salud cerebral. Utilizamos tecnologías avanzadas como la Estimulación Magnética Transcraneal (EMT) y la Terapia con Realidad Virtual.
+				</p>
+			  </div>
+			</div>
+			<div class="border-5 border-red-500 gap-20">
+
+
+				<p>
 				This template comes with a few integrations already configured in your
 				<code>astro.config.mjs</code> file. You can customize your setup with
 				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
@@ -44,6 +51,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 					>astro-blog-template
 				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
 			</p>
+			</div>
 		</main>
 		<Footer />
 	</body>
