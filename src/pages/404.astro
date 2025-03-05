@@ -1,0 +1,24 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    </head>
+    <body class="bg-light text-black">
+        <Header />
+        <main class="flex flex-col items-center justify-center min-h-screen p-8">
+            <section class="text-center">
+                <h1 class="text-6xl font-bold mb-4">404</h1>
+                <p class="text-2xl mb-6">Lo sentimos, la página que buscas no existe.</p>
+                <a href="/" class="bg-accent text-white py-2 px-4 rounded">Volver al inicio</a>
+            </section>
+        </main>
+        <Footer />
+    </body>
+</html>
