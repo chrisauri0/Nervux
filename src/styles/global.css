@@ -14,7 +14,7 @@
   font-display: swap;
 }
 body {
-  font-family: "sans";
+  font-family: "Atkinson";
   background-color: var(--color-light);
   color: var(--color-black);
 }
@@ -25,7 +25,9 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "League Spartan", sans-serif;
+  font-family: "Atkinson";
+  font-display: swap;
+  font-style: italic;
 }
 
 a {
