@@ -28,6 +28,7 @@ h6 {
   font-family: "Atkinson";
   font-display: swap;
   font-style: italic;
+  src: url("/fonts/atkinson-bold.woff") format("woff");
 }
 
 a {
