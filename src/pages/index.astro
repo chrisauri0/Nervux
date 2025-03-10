@@ -19,14 +19,14 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
             <!-- Hero Section -->
             <section class="w-full bg-cover bg-center h-96 flex items-center justify-center animated-gradient" >
 
-                <div class=" inset-0   flex items-center justify-center opacity-20">
-                    <img src="/svg/brain-op1.svg"  alt="Cerebro" class="w-1/2 h-1/2 animate-svg" />
+                <div class=" inset-0 w-6/12  flex items-center justify-center " >
+                    <img src="/logo/logo-3.png"  alt="Cerebro" class="w-1/2 h-1/2 " />
                   </div>
-                <div class="text-center text-blac absolute">
+                <!-- <div class="text-center text-blac absolute">
                     <h1 class="text-4xl font-bold mb-4">NERVUX Neurotechnology</h1>
                     <p class="text-lg mb-6">Optimización de la salud cerebral con tecnologías avanzadas</p>
                    
-                </div>
+                </div> -->
             </section>
 
             <!-- About Section -->
@@ -89,7 +89,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
                 <div class="space-y-8">
                   <!-- Testimonio 1 -->
                   <div class="flex flex-col md:flex-row items-start gap-4">
-                    <video class="w-full md:w-1/2 rounded-lg" controls>
+                    <video class="w-full md:w-1/2 rounded-lg" preload="none" controls>
                       <source src="/videos/Testimonio-1.mp4" type="video/mp4">
                       Tu navegador no soporta el elemento de video.
                     </video>
@@ -101,7 +101,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
               
                   <!-- Testimonio 2 -->
                   <div class="flex flex-col md:flex-row items-start gap-4">
-                    <video class="w-full md:w-1/2 rounded-lg" controls>
+                    <video class="w-full md:w-1/2 rounded-lg " preload="none" controls>
                       <source src="/videos/Testimonio-2.mp4" type="video/mp4">
                       Tu navegador no soporta el elemento de video.
                     </video>
@@ -138,22 +138,11 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 }
 
 .animated-gradient {
-  background: linear-gradient(270deg, #a1c4fd, #c2e9fb, #a1c4fd);
+  background: linear-gradient(270deg, #1b56ac, #1b56ac, #34adea);
   background-size: 400% 400%;
   animation: gradientAnimation 15s ease infinite;
 }
 
-@keyframes svgMove {
-  0% {
-    transform: translate(0, 0) scale(1);
-  }
-  50% {
-    transform: translate(10px, 10px) scale(1.05);
-  }
-  100% {
-    transform: translate(0, 0) scale(1);
-  }
-}
 
 .animate-svg {
   animation: svgMove 8s ease-in-out infinite;
