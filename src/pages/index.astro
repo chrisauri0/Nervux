@@ -9,24 +9,16 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 <html lang="en">
     <head>
         <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-       
-
     </head>
     <body class="bg-light text-black">
         <Header />
         <main class="flex flex-col items-center min-h-screen gap-12 w-full">
 
             <!-- Hero Section -->
-            <section class="w-full bg-cover bg-center h-96 flex items-center justify-center animated-gradient" >
-
-                <div class=" inset-0 w-6/12  flex items-center justify-center " >
-                    <img src="/logo/logo-3.png"  alt="Cerebro" class="w-1/2 h-1/2 " />
-                  </div>
-                <!-- <div class="text-center text-blac absolute">
-                    <h1 class="text-4xl font-bold mb-4">NERVUX Neurotechnology</h1>
-                    <p class="text-lg mb-6">Optimización de la salud cerebral con tecnologías avanzadas</p>
-                   
-                </div> -->
+            <section class="w-full bg-cover bg-center h-96 flex items-center justify-center animated-gradient">
+                <div class="inset-0 w-6/12 flex items-center justify-center">
+                    <img src="/logo/logo-3.png" alt="Cerebro" class="w-1/2 h-1/2" loading="lazy" />
+                </div>
             </section>
 
             <!-- About Section -->
@@ -35,49 +27,25 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
                 <p class="text-lg text-gray-700">
                     NERVUX Neurotechnology es una empresa especializada en neurotecnologías para la optimización de la salud cerebral. Utilizamos tecnologías avanzadas como la Estimulación Magnética Transcraneal (EMT) y la Terapia con Realidad Virtual.
                 </p>
-                
-                <!-- Sección más pequeña -->
-               
-                    <div class="text-center hover:scale-125  transition-all duration-700">
-                        <a href="/faq" class="bg-accent text-black px-4 py-2 text-lg rounded-md shadow-md hover:shadow-lg transition-all ">
-                            Conoce más
-                        </a>
-                    </div>
-                
-            </section>
-            
-            
-            <section class="w-full max-w-4xl p-8 bg-white shadow-lg rounded-2xl transition-all  hover:scale-105 hover:shadow-xl hover:bg-blue-100 duration-800">
-                <h2 class="text-2xl font-bold mb-4">Ventajas de la EMT</h2>
-                <h3 class="mb-4 font-bold ">Es un tratamiento seguro</h3>
-                <div class="text-lg text-gray-700 space-y-4">
-                    <p>
-                      <strong>No invasiva:</strong> Una de las principales ventajas de la EMT es que es un procedimiento no invasivo, lo que significa que no requiere cirugía ni la implantación de electrodos en el cerebro. Además, es un tratamiento indoloro y que no provoca efectos secundarios.
-                    </p>
-                    <p>
-                      <strong>Auxiliar en la reducción de fármacos:</strong> La estimulación magnética transcraneal (EMT) puede desempeñar un papel importante en la reducción de la dependencia de fármacos en ciertos trastornos, especialmente en aquellos de naturaleza neuropsiquiátrica.
-                    </p>
-                  </div>
-                  <div class="mb-4">
-                    <img src="/fda/FDA.webp" alt="FDA Approved" class="h-50 mx-auto"  loading="lazy" />
-                  </div>
-                  
+                <div class="text-center hover:scale-125 transition-all duration-700">
+                    <a href="/faq" class="bg-accent text-black px-4 py-2 text-lg rounded-md shadow-md hover:shadow-lg transition-all">
+                        Conoce más
+                    </a>
+                </div>
             </section>
 
             <!-- Services Section -->
-            <section class="w-full max-w-4xl p-8 bg-white shadow-lg rounded-2xl transition-all  hover:scale-105 hover:shadow-xl hover:bg-blue-100 duration-800">
+            <section class="w-full max-w-4xl p-8 bg-white shadow-lg rounded-2xl transition-all hover:scale-105 hover:shadow-xl hover:bg-blue-100 duration-800">
                 <h2 class="text-2xl font-bold mb-4">Nuestros Servicios</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div class="flex flex-col items-center">
-                        
                         <h3 class="text-xl font-bold mb-2">Estimulación Magnética Transcraneal (EMT)</h3>
                         <img src="/servicios/servicio-1.webp" alt="Servicio 1" class="h-60 mb-4 rounded-2xl" loading="lazy" />
                         <p class="text-gray-700 text-center">Tratamiento no invasivo para diversos trastornos neurológicos y psiquiátricos.</p>
                     </div>
                     <div class="flex flex-col items-center">
                         <h3 class="text-xl font-bold mb-2">Terapia con Realidad Virtual</h3>
-                        <img src="/servicios/servicio-rv.webp" alt="Servicio 2" class="h-65 rounded-2xl mb-6"  loading="lazy" />
-
+                        <img src="/servicios/servicio-rv.webp" alt="Servicio 2" class="h-65 rounded-2xl mb-6" loading="lazy" />
                         <p class="text-gray-700 text-center">Innovadora terapia para la rehabilitación y mejora cognitiva.</p>
                     </div>
                 </div>
@@ -87,32 +55,31 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
             <section class="w-full max-w-4xl p-8 bg-white shadow-lg rounded-2xl">
                 <h2 class="text-2xl font-bold mb-4">Testimonios</h2>
                 <div class="space-y-8">
-                  <!-- Testimonio 1 -->
-                  <div class="flex flex-col md:flex-row items-start gap-4">
-                    <video class="w-full md:w-1/2 rounded-lg" preload="none" controls>
-                      <source src="/videos/Testimonio-1.mp4" type="video/mp4">
-                      Tu navegador no soporta el elemento de video.
-                    </video>
-                    <blockquote class="text-gray-700 md:w-1/2">
-                      <p>"La EMT ha cambiado mi vida. Gracias a NERVUX por su excelente servicio."</p>
-                      <footer class="text-right mt-2">- Cliente Satisfecho</footer>
-                    </blockquote>
-                  </div>
-              
-                  <!-- Testimonio 2 -->
-                  <div class="flex flex-col md:flex-row items-start gap-4">
-                    <video class="w-full md:w-1/2 rounded-lg " preload="none" controls>
-                      <source src="/videos/Testimonio-2.mp4" type="video/mp4">
-                      Tu navegador no soporta el elemento de video.
-                    </video>
-                    <blockquote class="text-gray-700 md:w-1/2">
-                      <p>"La terapia con realidad virtual es increíble. He visto mejoras significativas."</p>
-                      <footer class="text-right mt-2">- Cliente Satisfecho</footer>
-                    </blockquote>
-                  </div>
+                    <!-- Testimonio 1 -->
+                    <div class="flex flex-col md:flex-row items-start gap-4">
+                        <video class="w-full md:w-1/2 rounded-lg" controls preload="none">
+                            <source src="/videos/Testimonio-1.mp4" type="video/mp4">
+                            Tu navegador no soporta el elemento de video.
+                        </video>
+                        <blockquote class="text-gray-700 md:w-1/2">
+                            <p>"La EMT ha cambiado mi vida. Gracias a NERVUX por su excelente servicio."</p>
+                            <footer class="text-right mt-2">- Cliente Satisfecho</footer>
+                        </blockquote>
+                    </div>
+
+                    <!-- Testimonio 2 -->
+                    <div class="flex flex-col md:flex-row items-start gap-4">
+                        <video class="w-full md:w-1/2 rounded-lg" controls preload="none">
+                            <source src="/videos/Testimonio-2.mp4" type="video/mp4">
+                            Tu navegador no soporta el elemento de video.
+                        </video>
+                        <blockquote class="text-gray-700 md:w-1/2">
+                            <p>"La terapia con realidad virtual es increíble. He visto mejoras significativas."</p>
+                            <footer class="text-right mt-2">- Cliente Satisfecho</footer>
+                        </blockquote>
+                    </div>
                 </div>
-              </section>
-              
+            </section>
 
             <!-- Contact Section -->
             <section class="w-full max-w-4xl p-8 bg-white shadow-lg rounded-2xl">
@@ -124,6 +91,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
         <Footer />
     </body>
 </html>
+
 <style>
 @keyframes gradientAnimation {
   0% {
@@ -143,11 +111,11 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
   animation: gradientAnimation 15s ease infinite;
 }
 
-
 .animate-svg {
   animation: svgMove 8s ease-in-out infinite;
 }
+
 .hover-title {
-    transition-transform transform hover:scale-105 hover:shadow-xl
+    transition-transform transform hover:scale-105 hover:shadow-xl;
 }
 </style>
