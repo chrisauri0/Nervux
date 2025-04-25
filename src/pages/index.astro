@@ -2,6 +2,11 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import logo from '../assets/logo/logo-sin-fondo.webp';
+import servicio1 from '../assets/servicios/servicio-1.webp';
+import servicio2 from '../assets/servicios/servicio-rv.webp';
+import testimonio1 from '../assets/videos/testimonio-1.mp4';
+import testimonio2 from '../assets/videos/Testimonio-2.mp4';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 ---
 
@@ -14,12 +19,15 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
         <Header />
         <main class="flex flex-col items-center min-h-screen gap-12 w-full">
 
-            <!-- Hero Section -->
-            <section class="w-full bg-cover bg-center h-96 flex items-center justify-center animated-gradient">
-                <div class="inset-0 w-6/12 flex items-center justify-center">
-                    <img src="/logo/logo-3.png" alt="Cerebro" class="w-1/2 h-1/2" loading="lazy" />
-                </div>
-            </section>
+          <!-- Hero Section -->
+<section class="w-full bg-cover bg-center h-96 flex items-center justify-center animated-gradient">
+    <div class="inset-0 w-full md:w-6/12 flex items-center justify-center">
+        <img src={logo.src} alt="Logo NERVUX" 
+            class="w-3/4 sm:w-1/2 md:w-1/2 h-auto max-w-xs sm:max-w-sm md:max-w-md"
+            loading="lazy" />
+    </div>
+</section>
+
 
             <!-- About Section -->
             <section class="w-full max-w-4xl p-8 bg-white shadow-lg rounded-2xl">
@@ -28,9 +36,12 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
                     NERVUX Neurotechnology es una empresa especializada en neurotecnologías para la optimización de la salud cerebral. Utilizamos tecnologías avanzadas como la Estimulación Magnética Transcraneal (EMT) y la Terapia con Realidad Virtual.
                 </p>
                 <div class="text-center hover:scale-125 transition-all duration-700">
-                    <a href="/faq" class="bg-accent text-black px-4 py-2 text-lg rounded-md shadow-md hover:shadow-lg transition-all">
-                        Conoce más
-                    </a>
+                    <button>    
+                        
+                        <a href="/preguntas" >
+                            Conoce más
+                        </a>
+                    </button>
                 </div>
             </section>
 
@@ -40,12 +51,12 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div class="flex flex-col items-center">
                         <h3 class="text-xl font-bold mb-2">Estimulación Magnética Transcraneal (EMT)</h3>
-                        <img src="/servicios/servicio-1.webp" alt="Servicio 1" class="h-60 mb-4 rounded-2xl" loading="lazy" />
+                        <img src={servicio1.src} alt="Servicio 1" class="h-60 mb-4 rounded-2xl" loading="lazy" />
                         <p class="text-gray-700 text-center">Tratamiento no invasivo para diversos trastornos neurológicos y psiquiátricos.</p>
                     </div>
                     <div class="flex flex-col items-center">
                         <h3 class="text-xl font-bold mb-2">Terapia con Realidad Virtual</h3>
-                        <img src="/servicios/servicio-rv.webp" alt="Servicio 2" class="h-65 rounded-2xl mb-6" loading="lazy" />
+                        <img src={servicio2.src} alt="Servicio 2" class="h-65 rounded-2xl mb-6" loading="lazy" />
                         <p class="text-gray-700 text-center">Innovadora terapia para la rehabilitación y mejora cognitiva.</p>
                     </div>
                 </div>
@@ -58,7 +69,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
                     <!-- Testimonio 1 -->
                     <div class="flex flex-col md:flex-row items-start gap-4">
                         <video class="w-full md:w-1/2 rounded-lg" controls preload="none">
-                            <source src="/videos/Testimonio-1.mp4" type="video/mp4">
+                            <source src={testimonio1} type="video/mp4">
                             Tu navegador no soporta el elemento de video.
                         </video>
                         <blockquote class="text-gray-700 md:w-1/2">
@@ -70,7 +81,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
                     <!-- Testimonio 2 -->
                     <div class="flex flex-col md:flex-row items-start gap-4">
                         <video class="w-full md:w-1/2 rounded-lg" controls preload="none">
-                            <source src="/videos/Testimonio-2.mp4" type="video/mp4">
+                            <source src={testimonio2} type="video/mp4">
                             Tu navegador no soporta el elemento de video.
                         </video>
                         <blockquote class="text-gray-700 md:w-1/2">
@@ -85,7 +96,10 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
             <section class="w-full max-w-4xl p-8 bg-white shadow-lg rounded-2xl">
                 <h2 class="text-2xl font-bold mb-4">Contáctanos</h2>
                 <p class="text-lg text-gray-700 mb-4">¿Tienes alguna pregunta? ¡Estamos aquí para ayudarte!</p>
-                <a href="/contact" class="bg-accent text-white py-2 px-4 rounded">Formulario de Contacto</a>
+                <button>
+
+                    <a href="/contacto" >Formulario de Contacto</a>
+                </button>
             </section>
         </main>
         <Footer />

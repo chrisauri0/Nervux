@@ -6,76 +6,43 @@ import { SITE_TITLE } from '../consts';
 <header class="bg-primary text-black shadow-md">
   <nav class="container mx-auto flex items-center justify-between p-4">
     <div class="flex items-center space-x-4">
-      <img src="/logo/logo.webp" alt="Logo" class="h-10 w-10" />
       <h2 class="text-2xl font-bold"><a href="/">{SITE_TITLE}</a></h2>
     </div>
-    <div class="hidden md:flex space-x-4">
-      <HeaderLink href="/">Home</HeaderLink>
-      <HeaderLink href="/treatments">Tratamientos</HeaderLink>
+    <!-- Menú Desktop -->
+    <div class="hidden md:flex space-x-4 text-black">
+      <HeaderLink href="/">Inicio</HeaderLink>
+      <HeaderLink href="/tratamientos">Tratamientos</HeaderLink>
       <HeaderLink href="/preguntas">Preguntas frecuentes</HeaderLink>
-      <HeaderLink href="/contact">Contact</HeaderLink>
+      <HeaderLink href="/antecedentes">Antecedentes</HeaderLink>
+      <HeaderLink href="/contacto">Contacto</HeaderLink>
     </div>
-    <button id="menu-button" class="md:hidden flex items-center px-3 py-2 border rounded text-black border-white hover:text-accent hover:border-accent">
-      <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-        <title>Menu</title>
-        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-      </svg>
+    <!-- Botón Menú Móvil -->
+    <button id="menu-button" aria-expanded="false" class="md:hidden flex items-center p-2 rounded text-white   hover:text-accent hover:border-accent">
+      <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-menu-2"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 6l16 0" /><path d="M4 12l16 0" /><path d="M4 18l16 0" /></svg>
+      
     </button>
   </nav>
-  <div id="mobile-menu" class="hidden md:hidden">
-    <HeaderLink href="/">Home</HeaderLink>
-    <HeaderLink href="/treatments">Tratamientos</HeaderLink>
+  <!-- Menú Móvil -->
+  <div id="mobile-menu" class="hidden md:hidden flex flex-col space-y-2 bg-primary text-black p-4">
+    <HeaderLink href="/">Inicio</HeaderLink>
+    <HeaderLink href="/tratamientos">Tratamientos</HeaderLink>
     <HeaderLink href="/preguntas">Preguntas frecuentes</HeaderLink>
-    <HeaderLink href="/contact">Contact</HeaderLink>
+    <HeaderLink href="/antecedentes">Antecedentes</HeaderLink>
+    <HeaderLink href="/contacto">Contacto</HeaderLink>
   </div>
 </header>
 
-<style>
-  header {
-    margin: 0;
-    padding: 0;
-  }
-  h2 a {
-    text-decoration: none;
-    color: inherit;
-  }
-  nav a {
-    padding: 0.5em 1em;
-    color: inherit;
-    border-bottom: 2px solid transparent;
-    text-decoration: none;
-  }
-  nav a:hover {
-    border-bottom-color: var(--color-accent);
-  }
-  .social-links a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .social-links a svg {
-    transition: color 0.3s;
-  }
-  .social-links a:hover svg {
-    color: var(--color-accent);
-  }
-</style>
-
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const menuButton = document.getElementById('menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
+  document.addEventListener("DOMContentLoaded", function () {
+    const menuButton = document.getElementById("menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
 
-    if (menuButton) {
-      menuButton.addEventListener('click', function () {
-      
-        if (mobileMenu) {
-        mobileMenu.classList.toggle('hidden');
-      }
-      })
+    if (menuButton && mobileMenu) {
+      menuButton.addEventListener("click", function () {
+        const isOpen = mobileMenu.classList.contains("hidden");
+        menuButton.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        mobileMenu.classList.toggle("hidden");
+      });
     }
-  }
-
-  );
-    
+  });
 </script>

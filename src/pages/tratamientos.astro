@@ -2,6 +2,8 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import servicio1 from '../assets/servicios/servicio-1.webp';
+import servicio2 from '../assets/servicios/servicio-rv.webp';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 ---
 
@@ -22,17 +24,23 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <!-- Treatment 1 -->
                     <div class="flex flex-col items-center bg-light p-6 rounded-lg shadow-md">
-                        <img src="/servicios/servicio-1.webp" alt="Estimulación Magnética Transcraneal (EMT)" class=" h-60 mb-4 rounded-2xl" loading="lazy" />
+                        <img src={servicio1.src} alt="Estimulación Magnética Transcraneal (EMT)" class=" h-60 mb-4 rounded-2xl" loading="lazy" />
                         <h3 class="text-xl font-bold mb-2">Estimulación Magnética Transcraneal (EMT)</h3>
                         <p class="text-gray-700 text-center mb-4">Tratamiento no invasivo para diversos trastornos neurológicos y psiquiátricos.</p>
-                        <a href="/emt" class="bg-accent text-white py-2 px-4 rounded">Más Información</a>
+                        <button>
+                            <a href="/emt" >Más Información</a>
+
+                        </button>
                     </div>
                     <!-- Treatment 2 -->
                     <div class="flex flex-col items-center bg-light p-6 rounded-lg shadow-md">
-                        <img src="/servicios/servicio-rv.webp" alt="Terapia con Realidad Virtual" class=" h-60 mb-4 rounded-2xl" loading="lazy" />
+                        <img src={servicio2.src} alt="Terapia con Realidad Virtual" class=" h-60 mb-4 rounded-2xl" loading="lazy" />
                         <h3 class="text-xl font-bold mb-10">Terapia con Realidad Virtual</h3>
                         <p class="text-gray-700 text-center mb-4">Innovadora terapia para la rehabilitación y mejora cognitiva.</p>
-                        <a href="/vr-therapy" class="bg-accent text-white py-2 px-4 rounded">Más Información</a>
+                        <button>
+                            <a href="/vr-therapy" >Más Información</a>
+
+                        </button>
                     </div>
                    
                 </div>

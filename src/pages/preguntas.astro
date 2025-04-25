@@ -2,6 +2,8 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import psicologa from '../assets/profesionales/psicologa.webp';
+import doctor from '../assets/profesionales/doctor.webp';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 const trastornos = [
@@ -42,13 +44,57 @@ const trastornos = [
             <!-- FAQ Section -->
             <section class="w-full max-w-4xl p-8 bg-white shadow-lg rounded-2xl">
                 <h1 class="text-3xl font-bold mb-6">Preguntas Frecuentes</h1>
+
+
                 <div class="grid grid-cols-1 gap-6">
-                    <div class="bg-white p-6 rounded-lg shadow-lg border-l-4 border-blue-500">
+
+                    
+                    <div class="bg-light p-6 rounded-lg shadow-lg border-l-4 destacado-borde">
+                        <h2 class="text-2xl font-bold mb-3 text-gray-800 flex items-center">
+                            🧠 ¿Quiénes son nuestros profesionales?
+                        </h2>
+
+                        <div class="grid sm:grid-cols-2 gap-10 mt-10 bg-white">
+                            <!-- Profesional 1 -->
+                            <div class="flex flex-col sm:flex-row items-center gap-8 bg-white p-8 rounded-2xl shadow-2xl transition-transform hover:scale-105">
+                              <img 
+                                src={psicologa.src} 
+                                alt="Psicóloga Ana" 
+                                class="w-40 h-40 sm:w-44 sm:h-44 object-cover rounded-full border-4 borde-azul  shadow-lg" 
+                                loading="lazy"
+                              />
+                              <div class="text-center sm:text-left">
+                                <h3 class="font-bold text-3xl text-gray-900 mb-2"> Ana Barajas</h3>
+                                <p class="text-gray-700 text-lg leading-snug">Psicóloga Clínica </p>
+                              </div>
+                            </div>
+                          
+                            <!-- Profesional 2 -->
+                            <div class="flex flex-col sm:flex-row items-center gap-8 bg-white p-8 rounded-2xl shadow-2xl transition-transform hover:scale-105">
+                              <img 
+                                src={doctor.src} 
+                                alt="Doctor Abraham" 
+                                class="w-40 h-40 sm:w-44 sm:h-44 object-cover rounded-full border-4 borde-azul shadow-lg" 
+                                loading="lazy"
+                              />
+                              <div class="text-center sm:text-left">
+                                <h3 class="font-bold text-3xl text-gray-900 mb-2">Dr. Abraham Ochoa</h3>
+                                <p class="text-gray-700 text-lg leading-snug">Neuropsiquiatra (EMT).</p>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          
+                          
+                        
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg shadow-lg destacado-borde">
                         <h2 class="text-2xl font-bold mb-3 text-gray-800 flex items-center">
                             ⚡ ¿Qué es la Estimulación Magnética Transcraneal (EMT)?
                         </h2>
                         <p class="text-lg text-gray-700 leading-relaxed">
-                            La Estimulación Magnética Transcraneal (EMT) es un tratamiento <span class="text-blue-600 font-medium">no invasivo</span> 
+                            La Estimulación Magnética Transcraneal (EMT) es un tratamiento <span class="span-azul">no invasivo</span> 
                             que utiliza campos magnéticos para estimular las células nerviosas en el cerebro, mejorando los síntomas de diversos 
                             trastornos neurológicos y psiquiátricos.
                         </p>
@@ -56,48 +102,49 @@ const trastornos = [
                     
                     
                     
-                    <div class="bg-light p-6 rounded-lg shadow-md border-l-4 border-green-500">
+                    <div class="bg-light p-6 rounded-lg shadow-md destacado-borde">
                         <h2 class="text-2xl font-bold mb-4 text-center">¿Qué padecimientos atendemos?
                         </h2>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 ">
                           {trastornos.map((trastorno) => (
                             <div class="flex items-center space-x-2">
-                              <span class="text-blue-500">✔️</span>
+                              <span class="span-azul">✔️</span>
                               <p class="text-gray-700">{trastorno}</p>
                             </div>
                           ))}
                         </div>
                     </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-yellow-500">
+
+                    <div class="bg-white p-6 rounded-lg shadow-md destacado-borde">
                         <h2 class="text-2xl font-bold mb-4 text-gray-800">¿Quiénes pueden tomar este tratamiento?</h2>
                         <ul class="text-lg text-gray-700 space-y-3">
-                            <li><strong class="text-blue-600">📌 Edad:</strong> 5 años en adelante.</li>
-                            <li><strong class="text-blue-600">👔 Empresarios:</strong> Que deseen mejorar sus funciones cognitivas clave para el liderazgo, toma de decisiones, planificación y organización, flexibilidad cognitiva, aumento en la concentración y atención, reducción de estrés y ansiedad, mejorar su estado de ánimo y creatividad.</li>
-                            <li><strong class="text-blue-600">✨ Personas comprometidas:</strong> Dispuestas a mejorar la calidad de vida eligiendo neurotecnología que aporte buenos resultados ante sus padecimientos.</li>
+                            <li><strong class="span-azul">📌 Edad:</strong> 5 años en adelante.</li>
+                            <li><strong class="span-azul">👔 Empresarios:</strong> Que deseen mejorar sus funciones cognitivas clave para el liderazgo, toma de decisiones, planificación y organización, flexibilidad cognitiva, aumento en la concentración y atención, reducción de estrés y ansiedad, mejorar su estado de ánimo y creatividad.</li>
+                            <li><strong class="span-azul">✨ Personas comprometidas:</strong> Dispuestas a mejorar la calidad de vida eligiendo neurotecnología que aporte buenos resultados ante sus padecimientos.</li>
                         </ul>
                     </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-red-500">
-                        <h2 class="text-2xl font-bold mb-4 text-gray-800">¿Quiénes <span class="text-red-600">NO</span> pueden tomar este tratamiento?</h2>
+                    <div class="bg-white p-6 rounded-lg shadow-md destacado-borde">
+                        <h2 class="text-2xl font-bold mb-4 text-gray-800">¿Quiénes <span class="span-azul">NO</span> pueden tomar este tratamiento?</h2>
                         <ul class="text-lg text-gray-700 space-y-3">
-                            <li><strong class="text-red-600">⚠️ Implantes metálicos:</strong> No es adecuada para personas con ciertos implantes metálicos en la cabeza o válvula en el cerebro.</li>
-                            <li><strong class="text-red-600">⚡ Convulsiones:</strong> No recomendado para quienes presenten historial de convulsiones.</li>
+                            <li><strong class="span-azul">⚠️ Implantes metálicos:</strong> No es adecuada para personas con ciertos implantes metálicos en la cabeza o válvula en el cerebro.</li>
+                            <li><strong class="span-azul">⚡ Convulsiones:</strong> No recomendado para quienes presenten historial de convulsiones.</li>
                            
                         </ul>
                     </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-yellow-400">
+                    <div class="bg-white p-6 rounded-lg shadow-md destacado-borde">
                         <h2 class="text-2xl font-bold mb-4 text-gray-800">📌 Consideraciones importantes</h2>
                         <ul class="text-lg text-gray-700 space-y-3">
-                            <li><strong class="text-blue-600">👩‍⚕️ Profesional capacitado:</strong> La EMT debe ser realizada por un profesional de la salud capacitado.</li>
-                            <li><strong class="text-blue-600">💬 Consulta médica:</strong> Es importante hablar con un médico para determinar si la EMT es una opción adecuada.</li>
-                            <li><strong class="text-blue-600">📊 Resultados positivos:</strong> La eficacia puede variar según el trastorno y la gravedad, pero los resultados siempre son positivos.</li>
+                            <li><strong class="span-azul">👩‍⚕️ Profesional capacitado:</strong> La EMT debe ser realizada por un profesional de la salud capacitado.</li>
+                            <li><strong class="span-azul">💬 Consulta médica:</strong> Es importante hablar con un médico para determinar si la EMT es una opción adecuada.</li>
+                            <li><strong class="span-azul">📊 Resultados positivos:</strong> La eficacia puede variar según el trastorno y la gravedad, pero los resultados siempre son positivos.</li>
                         </ul>
                     </div>
-                    <div class="bg-white p-6 rounded-lg shadow-lg border-l-4 border-green-500 mt-6">
+                    <div class="bg-white p-6 rounded-lg shadow-lg border-l-4 destacado-borde">
                         <h2 class="text-2xl font-bold mb-3 text-gray-800 flex items-center">
                             ⏳ ¿Cuánto tiempo dura una sesión de EMT?
                         </h2>
                         <p class="text-lg text-gray-700 leading-relaxed">
-                            Una sesión típica de EMT dura entre <span class="text-green-600 font-medium">20 y 40 minutos</span>, dependiendo del 
+                            Una sesión típica de EMT dura entre <span class="span-azul font-medium">20 y 40 minutos</span>, dependiendo del 
                             protocolo específico utilizado.
                         </p>
                     </div>

@@ -19,6 +19,18 @@ body {
   color: var(--color-black);
 }
 
+:root {
+  --negro-1: #010119;
+  --negro-2: #000000;
+  --azul-1: #1b56ac;
+  --azul-2: #0de7fc;
+  --azul-3: #34adea;
+  --azul-4: #1b56ac;
+  --gris-1: #a6a6a6;
+  --blanco-1: #ffffff;
+  --blanco-2: #e7f1f8;
+}
+
 h1,
 h2,
 h3,
@@ -30,12 +42,59 @@ h6 {
   font-style: italic;
   src: url("/fonts/atkinson-bold.woff") format("woff");
 }
-
-a {
-  color: var(--color-primary);
-  text-decoration: none;
+button {
+  background-color: var(--azul-1);
+  color: var(--blanco-1);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+}
+.destacado-borde {
+  border-left-width: 4px;
+  border-left-color: var(
+    --azul-1
+  ); /* o usa directamente #1b56ac si prefieres */
+}
+.borde-azul {
+  border-color: var(--azul-4);
 }
 
+.header-404 header,
+.header-404 header a,
+.header-404 header nav,
+.header-404 header h1,
+.header-404 header h2 {
+  color: white !important;
+  fill: white !important; /* Por si tienes íconos tipo SVG */
+}
+
+.span-azul {
+  color: var(--azul-4);
+  /* font-size: medium; */
+}
+
+a {
+  /* color: var(--color-primary); */
+  text-decoration: none;
+}
+/* 
 a:hover {
   color: var(--color-accent);
+} */
+
+article p {
+  margin-bottom: 1rem; /* Espacio entre párrafos */
+}
+
+article h2,
+article h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+article br {
+  display: block;
+  content: "";
+  margin-bottom: 0.5rem; /* Espacio entre líneas cuando usas <br> */
 }
