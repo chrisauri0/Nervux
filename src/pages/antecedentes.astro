@@ -3,11 +3,11 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-import pdfSvg from '../assets/svg/pdf-svgrepo-com.svg';
+// import pdfSvg from '../assets/svg/pdf-svgrepo-com.svg';
 import Historia from '../content/historia.mdx'; // Importa el archivo MDX
 
 const pdfs = [
-  { name: 'Permiso COFEPRIS', path: '/src/assets/pdfs/PermisoCofepris.pdf', icon: pdfSvg.src },
+//   { name: 'Permiso COFEPRIS', path: '/src/assets/pdfs/PermisoCofepris.pdf', icon: pdfSvg.src },
   // { name: 'Documento 2', path: '/path/to/document2.pdf', icon: pdfSvg.src },
   // { name: 'Documento 3', path: '/path/to/document3.pdf', icon: pdfSvg.src },
 ];
@@ -70,12 +70,12 @@ const pdfs = [
             <section class="w-full max-w-4xl p-8 bg-white shadow-lg rounded-2xl">
               <h2 class="text-2xl font-bold mb-4">Recursos y Enlaces</h2>
               <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {pdfs.map((pdf) => (
+                <!-- {pdfs.map((pdf) => (
                   <a href={pdf.path} target="_blank" class="flex flex-col items-center p-4 bg-gray-100 rounded-lg shadow-md hover:shadow-lg transition">
                     <img src={pdf.icon} alt="PDF Icon" class="w-12 h-12 mb-2" />
                     <span class="text-lg font-medium text-gray-800">{pdf.name}</span>
                   </a>
-                ))}
+                ))} -->
               </div>
             </section>
         </main>
