@@ -1,7 +1,7 @@
-# Astro Starter Kit: Blog
+# Web oficial Nervux tecnology 
 
 ```sh
-npm create astro@latest -- --template blog
+git clone https://github.com/chrisauri0/Nervux.git
 ```
 
 [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/blog)
