@@ -30,18 +30,17 @@ body {
   --blanco-1: #ffffff;
   --blanco-2: #e7f1f8;
 }
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Atkinson";
-  font-display: swap;
-  font-style: italic;
-  src: url("/fonts/atkinson-bold.woff") format("woff");
+.bg-azul{
+  background: var(--azul-3);
 }
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Atkinson";
+  font-style: italic;
+  font-weight: bold;
+  line-height: 1.3;
+}
+
+
 button {
   background-color: var(--azul-1);
   color: var(--blanco-1);
