@@ -8,7 +8,7 @@
 
 @font-face {
   font-family: "Atkinson";
-  src: url("/public/fonts/atkinson-bold.woff") format("woff");
+  src: url("/fonts/atkinson-bold.woff") format("woff");
   font-weight: bold;
   font-style: normal;
   font-display: swap;
@@ -29,9 +29,13 @@ body {
   --gris-1: #a6a6a6;
   --blanco-1: #ffffff;
   --blanco-2: #e7f1f8;
+  --azul-negro:#000118;
 }
 .bg-azul{
   background: var(--azul-3);
+}
+.bg-negro{
+  background: var(--azul-negro);
 }
 h1, h2, h3, h4, h5, h6 {
   font-family: "Atkinson";
