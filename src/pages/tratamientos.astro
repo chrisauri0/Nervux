@@ -1,51 +1,58 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import servicio1 from '../assets/servicios/servicio-1.webp';
-import servicio2 from '../assets/servicios/servicio-rv.webp';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import servicio1 from "../assets/servicios/servicio-1.webp";
+import servicio2 from "../assets/servicios/servicio-rv.webp";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 ---
 
 <!doctype html>
 <html lang="en">
-    <head>
-        <BaseHead title={`Tratamientos - ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
-    </head>
-    <body class="bg-light text-black">
-        <Header />
-        <main class="flex flex-col items-center min-h-screen gap-12 w-full p-8">
-            <!-- Treatments Section -->
-            <section class="w-full max-w-4xl p-8 bg-white shadow-lg rounded-2xl">
-                <h1 class="text-3xl font-bold mb-6">Nuestros Tratamientos</h1>
-                <p class="text-lg text-gray-700 mb-6">
-                    En NERVUX Neurotechnology, ofrecemos una variedad de tratamientos avanzados para la optimización de la salud cerebral. Nuestros tratamientos están diseñados para ser seguros, efectivos y personalizados para cada paciente.
-                </p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- Treatment 1 -->
-                    <div class="flex flex-col items-center bg-light p-6 rounded-lg shadow-md">
-                        <img src={servicio1.src} alt="Estimulación Magnética Transcraneal (EMT)" class=" h-60 mb-4 rounded-2xl" loading="lazy" />
-                        <h3 class="text-xl font-bold mb-2">Estimulación Magnética Transcraneal (EMT)</h3>
-                        <p class="text-gray-700 text-center mb-4">Tratamiento no invasivo para diversos trastornos neurológicos y psiquiátricos.</p>
-                        <button>
-                            <a href="/emt" >Más Información</a>
-
-                        </button>
-                    </div>
-                    <!-- Treatment 2 -->
-                    <div class="flex flex-col items-center bg-light p-6 rounded-lg shadow-md">
-                        <img src={servicio2.src} alt="Terapia con Realidad Virtual" class=" h-60 mb-4 rounded-2xl" loading="lazy" />
-                        <h3 class="text-xl font-bold mb-10">Terapia con Realidad Virtual</h3>
-                        <p class="text-gray-700 text-center mb-4">Innovadora terapia para la rehabilitación y mejora cognitiva.</p>
-                        <button>
-                            <a href="/vr-therapy" >Más Información</a>
-
-                        </button>
-                    </div>
-                   
-                </div>
-            </section>
-        </main>
-        <Footer />
-    </body>
+  <head>
+    <BaseHead
+      title={`Tratamientos - ${SITE_TITLE}`}
+      description={SITE_DESCRIPTION}
+    />
+  </head>
+  <body class="bg-light text-black">
+    <Header />
+    <main class="flex flex-col items-center min-h-screen gap-12 w-full p-8">
+      <!-- Treatments Section -->
+      <section class="w-full max-w-4xl p-8 bg-white shadow-lg rounded-2xl">
+        <h1 class="text-3xl font-bold mb-6">Nuestros Tratamientos</h1>
+        <p class="text-lg text-gray-700 mb-6">
+          En NERVUX Neurotechnology, ofrecemos una variedad de tratamientos
+          avanzados para la optimización de la salud cerebral. Nuestros
+          tratamientos están diseñados para ser seguros, efectivos y
+          personalizados para cada paciente.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Treatment 1 -->
+          <div
+            class="flex flex-col items-center bg-light p-6 rounded-lg shadow-md"
+          >
+            <img
+              src={servicio1.src}
+              alt="Estimulación Magnética Transcraneal (EMT)"
+              class="h-60 mb-4 rounded-2xl"
+              loading="lazy"
+            />
+            <h3 class="text-xl font-bold mb-2">
+              Estimulación Magnética Transcraneal (EMT)
+            </h3>
+            <p class="text-gray-700 text-center mb-4">
+              Tratamiento no invasivo para diversos trastornos neurológicos y
+              psiquiátricos.
+            </p>
+            <button>
+              <a href="/emt">Más Información</a>
+            </button>
+          </div>
+          <!-- Treatment 2 -->
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </body>
 </html>
