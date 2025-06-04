@@ -1,0 +1,39 @@
+---
+import testimonio1 from "../assets/videos/Testimonio-1.mp4";
+import testimonio2 from "../assets/videos/Testimonio-2.mp4";
+---
+
+<section class="w-full py-15 px-10 bg-white md:rounded-2xl lg:rounded-2xl">
+  <h2 class="text-5xl font-bold mb-4 text-center">Testimonios</h2>
+  <div class="space-y-8">
+    <!-- Testimonio 1 -->
+    <div class="flex flex-col md:flex-row items-start gap-4">
+      <video class="w-full md:w-1/2 rounded-lg" controls preload="none">
+        <source src={testimonio1} type="video/mp4" />
+        Tu navegador no soporta el elemento de video.
+      </video>
+      <blockquote class="text-gray-700 md:w-1/2">
+        <p>
+          "La EMT ha cambiado mi vida. Gracias a NERVUX por su excelente
+          servicio."
+        </p>
+        <footer class="text-right mt-2">- Cliente Satisfecho</footer>
+      </blockquote>
+    </div>
+
+    <!-- Testimonio 2 -->
+    <div class="flex flex-col md:flex-row items-start gap-4">
+      <video class="w-full md:w-1/2 rounded-lg" controls preload="none">
+        <source src={testimonio2} type="video/mp4" />
+        Tu navegador no soporta el elemento de video.
+      </video>
+      <blockquote class="text-gray-700 md:w-1/2">
+        <p>
+          "La terapia con realidad virtual es increíble. He visto mejoras
+          significativas."
+        </p>
+        <footer class="text-right mt-2">- Cliente Satisfecho</footer>
+      </blockquote>
+    </div>
+  </div>
+</section>
