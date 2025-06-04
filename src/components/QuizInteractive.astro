@@ -1,5 +1,5 @@
 <section
-  class="w-full max-w-3xl mx-auto px-6 py-12 bg-azul text-white rounded-2xl shadow-2xl"
+  class="w-full max-w-3xl mx-auto border-4 border-amber-600 px-6 py-8 bg-blue-900 text-white lg:rounded-2xl scroll-mt-24"
   id="quiz-nervux"
 >
   <h2 class="text-3xl font-bold mb-4 text-center">¿Es para ti?</h2>
@@ -7,57 +7,112 @@
     Contesta estas preguntas y descubre si la neuroestimulación puede ayudarte.
   </p>
 
+  <div class="w-full bg-gray-200 rounded-full h-2.5 mb-4">
+    <div
+      id="quiz-progress"
+      class="bg-blue-600 h-2.5 rounded-full transition-all"
+      style="width: 0%"
+    >
+    </div>
+  </div>
+
   <form id="quizForm" class="space-y-6">
+    <!-- Pregunta 1 -->
     <div>
       <p class="font-semibold mb-2">
         1. ¿Te cuesta concentrarte durante el día?
       </p>
       <div class="flex gap-4">
-        <label><input type="radio" name="q1" value="1" class="mr-2" />Sí</label>
-        <label><input type="radio" name="q1" value="0" class="mr-2" />No</label>
+        <button
+          type="button"
+          class="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg quiz-btn"
+          data-value="1"
+          data-question="q1">Sí</button
+        >
+        <button
+          type="button"
+          class="px-4 py-2 bg-gray-400 hover:bg-gray-500 rounded-lg quiz-btn"
+          data-value="0"
+          data-question="q1">No</button
+        >
       </div>
     </div>
 
+    <!-- Pregunta 2 -->
     <div>
       <p class="font-semibold mb-2">
         2. ¿Tienes problemas para dormir o descansar bien?
       </p>
       <div class="flex gap-4">
-        <label><input type="radio" name="q2" value="1" class="mr-2" />Sí</label>
-        <label><input type="radio" name="q2" value="0" class="mr-2" />No</label>
+        <button
+          type="button"
+          class="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg quiz-btn"
+          data-value="1"
+          data-question="q2">Sí</button
+        >
+        <button
+          type="button"
+          class="px-4 py-2 bg-gray-400 hover:bg-gray-500 rounded-lg quiz-btn"
+          data-value="0"
+          data-question="q2">No</button
+        >
       </div>
     </div>
 
+    <!-- Pregunta 3 -->
     <div>
       <p class="font-semibold mb-2">
         3. ¿Sufres de ansiedad o estrés constante?
       </p>
       <div class="flex gap-4">
-        <label><input type="radio" name="q3" value="1" class="mr-2" />Sí</label>
-        <label><input type="radio" name="q3" value="0" class="mr-2" />No</label>
+        <button
+          type="button"
+          class="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg quiz-btn"
+          data-value="1"
+          data-question="q3">Sí</button
+        >
+        <button
+          type="button"
+          class="px-4 py-2 bg-gray-400 hover:bg-gray-500 rounded-lg quiz-btn"
+          data-value="0"
+          data-question="q3">No</button
+        >
       </div>
     </div>
 
+    <!-- Pregunta 4 -->
     <div>
       <p class="font-semibold mb-2">
         4. ¿Te gustaría mejorar tu creatividad o enfoque?
       </p>
       <div class="flex gap-4">
-        <label><input type="radio" name="q4" value="1" class="mr-2" />Sí</label>
-        <label><input type="radio" name="q4" value="0" class="mr-2" />No</label>
+        <button
+          type="button"
+          class="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg quiz-btn"
+          data-value="1"
+          data-question="q4">Sí</button
+        >
+        <button
+          type="button"
+          class="px-4 py-2 bg-gray-400 hover:bg-gray-500 rounded-lg quiz-btn"
+          data-value="0"
+          data-question="q4">No</button
+        >
       </div>
     </div>
 
+    <!-- Botón de enviar -->
     <div class="text-center mt-10">
       <button
         type="submit"
-        class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-xl font-semibold transition-all"
+        class="bg-green-600 hover:bg-green-700 px-6 py-3 rounded-xl font-semibold transition-all"
       >
         Ver resultado
       </button>
     </div>
   </form>
 
+  <!-- Resultado -->
   <div id="quizResult" class="mt-8 text-center hidden">
     <h3 class="text-2xl font-bold mb-2">Resultado:</h3>
     <p id="quizMessage" class="text-lg"></p>
@@ -69,42 +124,64 @@
     </a>
   </div>
 </section>
+
 <script>
+  const quizBtns = document.querySelectorAll(".quiz-btn");
+  const progressBar = document.getElementById("quiz-progress");
   const quizForm = document.getElementById("quizForm");
-  if (quizForm) {
-    quizForm.addEventListener("submit", function (e) {
-      e.preventDefault();
+  const quizResult = document.getElementById("quizResult");
+  const quizMessage = document.getElementById("quizMessage");
 
-      let score = 0;
-      const totalQuestions = 4;
+  const answers = {};
 
-      for (let i = 1; i <= totalQuestions; i++) {
-        const answer = document.querySelector(`input[name="q${i}"]:checked`);
-        if (answer) {
-          score += parseInt((answer as HTMLInputElement).value);
-        }
-      }
+  quizBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const question = btn.getAttribute("data-question");
+      const value = parseInt(btn.getAttribute("data-value"));
 
-      const resultSection = document.getElementById("quizResult");
-      const resultMessage = document.getElementById("quizMessage");
+      // Guardar respuesta
+      answers[question] = value;
 
-      if (resultMessage) {
-        if (score === 0) {
-          resultMessage.textContent =
-            "Parece que no tienes síntomas relevantes. ¡Eso es una gran noticia! Aun así, la neuroestimulación puede ayudarte a potenciar tu mente.";
-        } else if (score <= 2) {
-          resultMessage.textContent =
-            "Podrías beneficiarte de nuestras terapias para mejorar tu enfoque y bienestar general.";
-        } else {
-          resultMessage.textContent =
-            "¡Definitivamente podemos ayudarte! La neuroestimulación podría ser una herramienta poderosa para transformar tu salud mental.";
-        }
-      }
+      // Quitar selección previa
+      document
+        .querySelectorAll(`[data-question="${question}"]`)
+        .forEach((b) => {
+          b.classList.remove("ring-4", "ring-green-400");
+        });
 
-      if (resultSection) {
-        resultSection.classList.remove("hidden");
-        resultSection.scrollIntoView({ behavior: "smooth" });
-      }
+      // Resaltar selección actual
+      btn.classList.add("ring-4", "ring-green-400");
+
+      // Actualizar progreso
+      const totalQuestions =
+        document.querySelectorAll(".quiz-btn[data-question]").length / 2;
+      const answered = Object.keys(answers).length;
+      const percent = Math.floor((answered / totalQuestions) * 100);
+      progressBar.style.width = percent + "%";
     });
-  }
+  });
+
+  quizForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const total = Object.values(answers).reduce((a, b) => a + b, 0);
+
+    let message = "";
+    if (total >= 3) {
+      message =
+        "¡Parece que podrías beneficiarte mucho de la neuroestimulación! Nuestros servicios podrían ayudarte a mejorar tu bienestar mental.";
+    } else if (total === 2) {
+      message =
+        "Tienes algunos síntomas que podrían mejorar con neuroestimulación. Vale la pena considerar una consulta.";
+    } else {
+      message =
+        "Tal vez no presentes síntomas significativos, pero si deseas potenciar tu rendimiento o relajación, también podemos ayudarte.";
+    }
+
+    quizMessage.textContent = message;
+    quizResult.classList.remove("hidden");
+    const offset =
+      quizResult.getBoundingClientRect().top + window.scrollY - 200;
+    window.scrollTo({ top: offset, behavior: "smooth" });
+  });
 </script>
