@@ -3,11 +3,13 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import logo from '../assets/logo/logo-sin-fondo.webp';
+import QuizInteractive from '../components/QuizInteractive.astro';
 import servicio1 from '../assets/servicios/servicio-1.webp';
 import servicio2 from '../assets/servicios/servicio-rv.webp';
 import testimonio1 from '../assets/videos/Testimonio-1.mp4';
 import testimonio2 from '../assets/videos/Testimonio-2.mp4';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
 ---
 
 <!doctype html>
@@ -67,99 +69,11 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
       </div>
     </div>
   </section>
-  
+    <!-- Interactive Quiz Advanced -->
+<QuizInteractive client:visible  />
 
-            <!-- Interactive Quiz Advanced -->
-<section class="w-full max-w-3xl mx-auto px-6 py-12 bg-azul text-white rounded-2xl shadow-2xl" id="quiz-nervux">
-    <h2 class="text-3xl font-bold mb-4 text-center">¿Es para ti?</h2>
-    <p class="text-lg text-center mb-8">Contesta estas preguntas y descubre si la neuroestimulación puede ayudarte.</p>
-  
-    <form id="quizForm" class="space-y-6">
-      <div>
-        <p class="font-semibold mb-2">1. ¿Te cuesta concentrarte durante el día?</p>
-        <div class="flex gap-4">
-          <label><input type="radio" name="q1" value="1" class="mr-2">Sí</label>
-          <label><input type="radio" name="q1" value="0" class="mr-2">No</label>
-        </div>
-      </div>
-  
-      <div>
-        <p class="font-semibold mb-2">2. ¿Tienes problemas para dormir o descansar bien?</p>
-        <div class="flex gap-4">
-          <label><input type="radio" name="q2" value="1" class="mr-2">Sí</label>
-          <label><input type="radio" name="q2" value="0" class="mr-2">No</label>
-        </div>
-      </div>
-  
-      <div>
-        <p class="font-semibold mb-2">3. ¿Sufres de ansiedad o estrés constante?</p>
-        <div class="flex gap-4">
-          <label><input type="radio" name="q3" value="1" class="mr-2">Sí</label>
-          <label><input type="radio" name="q3" value="0" class="mr-2">No</label>
-        </div>
-      </div>
-  
-      <div>
-        <p class="font-semibold mb-2">4. ¿Te gustaría mejorar tu creatividad o enfoque?</p>
-        <div class="flex gap-4">
-          <label><input type="radio" name="q4" value="1" class="mr-2">Sí</label>
-          <label><input type="radio" name="q4" value="0" class="mr-2">No</label>
-        </div>
-      </div>
-  
-      <div class="text-center mt-10">
-        <button type="submit" class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-xl font-semibold transition-all">
-          Ver resultado
-        </button>
-      </div>
-    </form>
-  
-    <div id="quizResult" class="mt-8 text-center hidden">
-      <h3 class="text-2xl font-bold mb-2">Resultado:</h3>
-      <p id="quizMessage" class="text-lg"></p>
-      <a href="#servicios" class="inline-block mt-6 px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl transition-all">
-        Explorar beneficios
-      </a>
-    </div>
-  </section>
-  
-  <script>
-    const quizForm = document.getElementById('quizForm');
-    if (quizForm) {
-      quizForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-    
-        let score = 0;
-        const totalQuestions = 4;
-    
-        for (let i = 1; i <= totalQuestions; i++) {
-          const answer = document.querySelector(`input[name="q${i}"]:checked`);
-          if (answer) {
-            score += parseInt((answer as HTMLInputElement).value);
-          }
-        }
-    
-        const resultSection = document.getElementById('quizResult');
-        const resultMessage = document.getElementById('quizMessage');
-    
-        if (resultMessage) {
-          if (score === 0) {
-            resultMessage.textContent = "Parece que no tienes síntomas relevantes. ¡Eso es una gran noticia! Aun así, la neuroestimulación puede ayudarte a potenciar tu mente.";
-          } else if (score <= 2) {
-            resultMessage.textContent = "Podrías beneficiarte de nuestras terapias para mejorar tu enfoque y bienestar general.";
-          } else {
-            resultMessage.textContent = "¡Definitivamente podemos ayudarte! La neuroestimulación podría ser una herramienta poderosa para transformar tu salud mental.";
-          }
-        }
-    
-        if (resultSection) {
-          resultSection.classList.remove('hidden');
-          resultSection.scrollIntoView({ behavior: 'smooth' });
-        }
-      });
-    }
-  </script>
-  
+          
+
 
             <!-- Testimonials Section -->
             <section class="w-full max-w-4xl p-8 bg-white shadow-lg rounded-2xl">
