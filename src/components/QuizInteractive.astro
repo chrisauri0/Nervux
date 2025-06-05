@@ -132,15 +132,18 @@
   const quizResult = document.getElementById("quizResult");
   const quizMessage = document.getElementById("quizMessage");
 
+  /** @type {{ [key: string]: number }} */
   const answers = {};
 
   quizBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
       const question = btn.getAttribute("data-question");
-      const value = parseInt(btn.getAttribute("data-value"));
+      const value = parseInt(btn.getAttribute("data-value") ?? "0");
 
-      // Guardar respuesta
-      answers[question] = value;
+      // Guardar respuesta solo si question no es null
+      if (question !== null) {
+        answers[question] = value;
+      }
 
       // Quitar selección previa
       document
@@ -157,31 +160,41 @@
         document.querySelectorAll(".quiz-btn[data-question]").length / 2;
       const answered = Object.keys(answers).length;
       const percent = Math.floor((answered / totalQuestions) * 100);
-      progressBar.style.width = percent + "%";
+      if (progressBar) {
+        progressBar.style.width = percent + "%";
+      }
     });
   });
 
-  quizForm.addEventListener("submit", (e) => {
-    e.preventDefault();
+  if (quizForm) {
+    quizForm.addEventListener("submit", (e) => {
+      e.preventDefault();
 
-    const total = Object.values(answers).reduce((a, b) => a + b, 0);
+      const total = Object.values(answers)
+        .map(Number)
+        .reduce((a, b) => a + b, 0);
 
-    let message = "";
-    if (total >= 3) {
-      message =
-        "¡Parece que podrías beneficiarte mucho de la neuroestimulación! Nuestros servicios podrían ayudarte a mejorar tu bienestar mental.";
-    } else if (total === 2) {
-      message =
-        "Tienes algunos síntomas que podrían mejorar con neuroestimulación. Vale la pena considerar una consulta.";
-    } else {
-      message =
-        "Tal vez no presentes síntomas significativos, pero si deseas potenciar tu rendimiento o relajación, también podemos ayudarte.";
-    }
+      let message = "";
+      if (total >= 3) {
+        message =
+          "¡Parece que podrías beneficiarte mucho de la neuroestimulación! Nuestros servicios podrían ayudarte a mejorar tu bienestar mental.";
+      } else if (total === 2) {
+        message =
+          "Tienes algunos síntomas que podrían mejorar con neuroestimulación. Vale la pena considerar una consulta.";
+      } else {
+        message =
+          "Tal vez no presentes síntomas significativos, pero si deseas potenciar tu rendimiento o relajación, también podemos ayudarte.";
+      }
 
-    quizMessage.textContent = message;
-    quizResult.classList.remove("hidden");
-    const offset =
-      quizResult.getBoundingClientRect().top + window.scrollY - 200;
-    window.scrollTo({ top: offset, behavior: "smooth" });
-  });
+      if (quizMessage) {
+        quizMessage.textContent = message;
+      }
+      if (quizResult) {
+        quizResult.classList.remove("hidden");
+        const offset =
+          quizResult.getBoundingClientRect().top + window.scrollY - 200;
+        window.scrollTo({ top: offset, behavior: "smooth" });
+      }
+    });
+  }
 </script>
