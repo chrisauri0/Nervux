@@ -1,10 +1,3 @@
----
-
----
-
-// Todo lo que va aquí arriba son props, pero como no usas props, lo dejamos
-vacío.
-
 <section
   class="w-full max-w-3xl mx-auto border-4 border-amber-600 px-6 py-8 bg-blue-900 text-white lg:rounded-2xl scroll-mt-24"
   id="quiz-nervux"
@@ -24,39 +17,89 @@ vacío.
   </div>
 
   <form id="quizForm" class="space-y-6">
-    <!-- Preguntas -->
-    {
-      [
-        "concentrarte durante el día",
-        "dormir o descansar bien",
-        "ansiedad o estrés constante",
-        "mejorar tu creatividad o enfoque",
-      ].map((q, i) => (
-        <div>
-          <p class="font-semibold mb-2">
-            {i + 1}. ¿Te cuesta {q}?
-          </p>
-          <div class="flex gap-4">
-            <button
-              type="button"
-              class="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg quiz-btn"
-              data-value="1"
-              data-question={`q${i + 1}`}
-            >
-              Sí
-            </button>
-            <button
-              type="button"
-              class="px-4 py-2 bg-gray-400 hover:bg-gray-500 rounded-lg quiz-btn"
-              data-value="0"
-              data-question={`q${i + 1}`}
-            >
-              No
-            </button>
-          </div>
-        </div>
-      ))
-    }
+    <!-- Pregunta 1 -->
+    <div>
+      <p class="font-semibold mb-2">
+        1. ¿Te cuesta concentrarte durante el día?
+      </p>
+      <div class="flex gap-4">
+        <button
+          type="button"
+          class="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg quiz-btn"
+          data-value="1"
+          data-question="q1">Sí</button
+        >
+        <button
+          type="button"
+          class="px-4 py-2 bg-gray-400 hover:bg-gray-500 rounded-lg quiz-btn"
+          data-value="0"
+          data-question="q1">No</button
+        >
+      </div>
+    </div>
+
+    <!-- Pregunta 2 -->
+    <div>
+      <p class="font-semibold mb-2">
+        2. ¿Tienes problemas para dormir o descansar bien?
+      </p>
+      <div class="flex gap-4">
+        <button
+          type="button"
+          class="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg quiz-btn"
+          data-value="1"
+          data-question="q2">Sí</button
+        >
+        <button
+          type="button"
+          class="px-4 py-2 bg-gray-400 hover:bg-gray-500 rounded-lg quiz-btn"
+          data-value="0"
+          data-question="q2">No</button
+        >
+      </div>
+    </div>
+
+    <!-- Pregunta 3 -->
+    <div>
+      <p class="font-semibold mb-2">
+        3. ¿Sufres de ansiedad o estrés constante?
+      </p>
+      <div class="flex gap-4">
+        <button
+          type="button"
+          class="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg quiz-btn"
+          data-value="1"
+          data-question="q3">Sí</button
+        >
+        <button
+          type="button"
+          class="px-4 py-2 bg-gray-400 hover:bg-gray-500 rounded-lg quiz-btn"
+          data-value="0"
+          data-question="q3">No</button
+        >
+      </div>
+    </div>
+
+    <!-- Pregunta 4 -->
+    <div>
+      <p class="font-semibold mb-2">
+        4. ¿Te gustaría mejorar tu creatividad o enfoque?
+      </p>
+      <div class="flex gap-4">
+        <button
+          type="button"
+          class="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg quiz-btn"
+          data-value="1"
+          data-question="q4">Sí</button
+        >
+        <button
+          type="button"
+          class="px-4 py-2 bg-gray-400 hover:bg-gray-500 rounded-lg quiz-btn"
+          data-value="0"
+          data-question="q4">No</button
+        >
+      </div>
+    </div>
 
     <!-- Botón de enviar -->
     <div class="text-center mt-10">
@@ -82,50 +125,47 @@ vacío.
   </div>
 </section>
 
-<script type="module" is:inline>
-  const quizBtns = document.querySelectorAll(".quiz-btn");
-  const progressBar = document.getElementById("quiz-progress");
-  const quizForm = document.getElementById("quizForm");
-  const quizResult = document.getElementById("quizResult");
-  const quizMessage = document.getElementById("quizMessage");
+<script>
+  if (typeof window !== "undefined") {
+    const quizBtns = document.querySelectorAll(".quiz-btn");
+    const progressBar = document.getElementById("quiz-progress");
+    const quizForm = document.getElementById("quizForm");
+    const quizResult = document.getElementById("quizResult");
+    const quizMessage = document.getElementById("quizMessage");
 
-  /** @type {{ [key: string]: number }} */
-  const answers = {};
+    const answers = {};
 
-  quizBtns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const question = btn.getAttribute("data-question");
-      const value = parseInt(btn.getAttribute("data-value") ?? "0");
+    quizBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const question = btn.getAttribute("data-question");
+        const value = parseInt(btn.getAttribute("data-value"));
 
-      if (question !== null) {
+        // Guardar respuesta
         answers[question] = value;
-      }
 
-      document
-        .querySelectorAll(`[data-question="${question}"]`)
-        .forEach((b) => {
-          b.classList.remove("ring-4", "ring-green-400");
-        });
+        // Quitar selección previa
+        document
+          .querySelectorAll(`[data-question="${question}"]`)
+          .forEach((b) => {
+            b.classList.remove("ring-4", "ring-green-400");
+          });
 
-      btn.classList.add("ring-4", "ring-green-400");
+        // Resaltar selección actual
+        btn.classList.add("ring-4", "ring-green-400");
 
-      const totalQuestions =
-        document.querySelectorAll(".quiz-btn[data-question]").length / 2;
-      const answered = Object.keys(answers).length;
-      const percent = Math.floor((answered / totalQuestions) * 100);
-      if (progressBar) {
+        // Actualizar progreso
+        const totalQuestions =
+          document.querySelectorAll(".quiz-btn[data-question]").length / 2;
+        const answered = Object.keys(answers).length;
+        const percent = Math.floor((answered / totalQuestions) * 100);
         progressBar.style.width = percent + "%";
-      }
+      });
     });
-  });
 
-  if (quizForm) {
     quizForm.addEventListener("submit", (e) => {
       e.preventDefault();
 
-      const total = Object.values(answers)
-        .map(Number)
-        .reduce((a, b) => a + b, 0);
+      const total = Object.values(answers).reduce((a, b) => a + b, 0);
 
       let message = "";
       if (total >= 3) {
@@ -139,15 +179,11 @@ vacío.
           "Tal vez no presentes síntomas significativos, pero si deseas potenciar tu rendimiento o relajación, también podemos ayudarte.";
       }
 
-      if (quizMessage) {
-        quizMessage.textContent = message;
-      }
-      if (quizResult) {
-        quizResult.classList.remove("hidden");
-        const offset =
-          quizResult.getBoundingClientRect().top + window.scrollY - 200;
-        window.scrollTo({ top: offset, behavior: "smooth" });
-      }
+      quizMessage.textContent = message;
+      quizResult.classList.remove("hidden");
+      const offset =
+        quizResult.getBoundingClientRect().top + window.scrollY - 250;
+      window.scrollTo({ top: offset, behavior: "smooth" });
     });
   }
 </script>
