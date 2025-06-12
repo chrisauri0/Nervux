@@ -1,5 +1,5 @@
 <section
-  class="w-full max-w-3xl mx-auto border-4 border-amber-600 px-6 py-8 bg-blue-900 text-white lg:rounded-2xl scroll-mt-24"
+  class="w-full max-w-3xl mx-auto px-6 py-8 bg-blue-900 text-white lg:rounded-2xl scroll-mt-24"
   id="quiz-nervux"
 >
   <h2 class="text-3xl font-bold mb-4 text-center">¿Es para ti?</h2>
@@ -7,13 +7,19 @@
     Contesta estas preguntas y descubre si la neuroestimulación puede ayudarte.
   </p>
 
-  <div class="w-full bg-gray-200 rounded-full h-2.5 mb-4">
-    <div
-      id="quiz-progress"
-      class="bg-blue-600 h-2.5 rounded-full transition-all"
-      style="width: 0%"
-    >
+  <div class="flex items-center gap-3 mb-4">
+    <div class="w-full bg-gray-200 rounded-full h-2.5">
+      <div
+        id="quiz-progress"
+        class="bg-blue-600 h-2.5 rounded-full transition-all"
+        style="width: 0%"
+      >
+      </div>
     </div>
+    <span
+      id="quiz-percent"
+      class="min-w-[40px] text-2xl font-bold text-blue-200">0%</span
+    >
   </div>
 
   <form id="quizForm" class="space-y-6">
@@ -125,8 +131,10 @@
   </div>
 </section>
 
-<script>
+<script is:inline>
   if (typeof window !== "undefined") {
+    const percentSpan = document.getElementById("quiz-percent");
+
     const quizBtns = document.querySelectorAll(".quiz-btn");
     const progressBar = document.getElementById("quiz-progress");
     const quizForm = document.getElementById("quizForm");
@@ -147,43 +155,56 @@
         document
           .querySelectorAll(`[data-question="${question}"]`)
           .forEach((b) => {
-            b.classList.remove("ring-4", "ring-green-400");
+            b.classList.remove("ring-4", "ring-cyan-400");
           });
 
         // Resaltar selección actual
-        btn.classList.add("ring-4", "ring-green-400");
+        btn.classList.add("ring-4", "ring-cyan-400");
 
         // Actualizar progreso
         const totalQuestions =
           document.querySelectorAll(".quiz-btn[data-question]").length / 2;
         const answered = Object.keys(answers).length;
         const percent = Math.floor((answered / totalQuestions) * 100);
-        progressBar.style.width = percent + "%";
+
+        if (percentSpan) percentSpan.textContent = percent + "%";
+
+        if (progressBar) progressBar.style.width = percent + "%";
       });
     });
 
-    quizForm.addEventListener("submit", (e) => {
-      e.preventDefault();
+    if (quizForm) {
+      quizForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        let message = "";
+        if (Object.keys(answers).length < 4) {
+          message = "Por favor, responde todas las preguntas.";
+          if (quizMessage) quizMessage.textContent = message;
+          if (quizResult) quizResult.classList.remove("hidden");
+          return;
+        }
 
-      const total = Object.values(answers).reduce((a, b) => a + b, 0);
+        const total = Object.values(answers).reduce((a, b) => a + b, 0);
 
-      let message = "";
-      if (total >= 3) {
-        message =
-          "¡Parece que podrías beneficiarte mucho de la neuroestimulación! Nuestros servicios podrían ayudarte a mejorar tu bienestar mental.";
-      } else if (total === 2) {
-        message =
-          "Tienes algunos síntomas que podrían mejorar con neuroestimulación. Vale la pena considerar una consulta.";
-      } else {
-        message =
-          "Tal vez no presentes síntomas significativos, pero si deseas potenciar tu rendimiento o relajación, también podemos ayudarte.";
-      }
+        if (total >= 3) {
+          message =
+            "¡Parece que podrías beneficiarte mucho de la neuroestimulación! Nuestros servicios podrían ayudarte a mejorar tu bienestar mental.";
+        } else if (total === 2) {
+          message =
+            "Tienes algunos síntomas que podrían mejorar con neuroestimulación. Vale la pena considerar una consulta.";
+        } else {
+          message =
+            "Tal vez no presentes síntomas significativos, pero si deseas potenciar tu rendimiento o relajación, también podemos ayudarte.";
+        }
 
-      quizMessage.textContent = message;
-      quizResult.classList.remove("hidden");
-      const offset =
-        quizResult.getBoundingClientRect().top + window.scrollY - 250;
-      window.scrollTo({ top: offset, behavior: "smooth" });
-    });
+        if (quizMessage) quizMessage.textContent = message;
+        if (quizResult) {
+          quizResult.classList.remove("hidden");
+          const offset =
+            quizResult.getBoundingClientRect().top + window.scrollY - 250;
+          window.scrollTo({ top: offset, behavior: "smooth" });
+        }
+      });
+    }
   }
 </script>
