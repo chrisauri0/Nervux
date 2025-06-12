@@ -1,315 +1,335 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import logo from '../assets/logo/logo-sin-fondo.webp';
-import EmtExplanation from '../components/EmtExplanation.astro';
-import Testimonials from '../components/Testimonials.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import logo from "../assets/logo/logo-sin-fondo.webp";
+import EmtExplanation from "../components/EmtExplanation.astro";
+import Testimonials from "../components/Testimonials.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 ---
 
 <!doctype html>
 <html lang="en">
-    <head>
-        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-    </head>
-    <body class="bg-light text-black">
-        <Header />
-        <main class="flex flex-col items-center min-h-screen  w-full">
-            <!-- Hero Section -->
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body class="bg-light text-black">
+    <Header />
+    <main class="flex flex-col items-center min-h-screen w-full">
+      <!-- Hero Section -->
 
-            <section class="w-full h-screen bg-cover bg-center flex items-center justify-center relative">
-                <div class="absolute inset-0 bg-azul bg-opacity-50 backdrop-blur-sm"></div>
-                <div class="z-10 text-center space-y-6 px-4 ">
-                  <img src={logo.src} alt="Logo NERVUX" class="mx-auto w-40 sm:w-56 md:w-72  mt-[-40px]" loading="lazy" />
-                  <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight text-white ">
-                    Estimula tu mente, transforma tu vida
-                  </h1>
-                  <p class="text-lg sm:text-xl text-white max-w-2xl mx-auto">
-                    Descubre el poder de la neurotecnología con NERVUX. Potenciamos tu bienestar con tecnología avanzada y terapias seguras.
-                  </p>
-                  <a href="/tratamientos" class="inline-block px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-xl text-white font-semibold transition-all duration-300">
-                    Nuestros servicios
-                  </a>
-                </div>
-              </section>
-
-            <!-- EMT Explanation Section -->
-             <EmtExplanation/>
-
-    <!-- Interactive Quiz Advanced -->
-  	            <section
-  class="w-full max-w-3xl mx-auto border-4 border-amber-600 px-6 py-8 bg-blue-900 text-white lg:rounded-2xl scroll-mt-24"
-  id="quiz-nervux"
->
-  <h2 class="text-3xl font-bold mb-4 text-center">¿Es para ti?</h2>
-  <p class="text-lg text-center mb-8">
-    Contesta estas preguntas y descubre si la neuroestimulación puede ayudarte.
-  </p>
-
-  <div class="w-full bg-gray-200 rounded-full h-2.5 mb-4">
-    <div
-      id="quiz-progress"
-      class="bg-blue-600 h-2.5 rounded-full transition-all"
-      style="width: 0%"
-    >
-    </div>
-  </div>
-
-  <form id="quizForm" class="space-y-6">
-    <!-- Pregunta 1 -->
-    <div>
-      <p class="font-semibold mb-2">
-        1. ¿Te cuesta concentrarte durante el día?
-      </p>
-      <div class="flex gap-4">
-        <button
-          type="button"
-          class="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg quiz-btn"
-          data-value="1"
-          data-question="q1">Sí</button
-        >
-        <button
-          type="button"
-          class="px-4 py-2 bg-gray-400 hover:bg-gray-500 rounded-lg quiz-btn"
-          data-value="0"
-          data-question="q1">No</button
-        >
-      </div>
-    </div>
-
-    <!-- Pregunta 2 -->
-    <div>
-      <p class="font-semibold mb-2">
-        2. ¿Tienes problemas para dormir o descansar bien?
-      </p>
-      <div class="flex gap-4">
-        <button
-          type="button"
-          class="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg quiz-btn"
-          data-value="1"
-          data-question="q2">Sí</button
-        >
-        <button
-          type="button"
-          class="px-4 py-2 bg-gray-400 hover:bg-gray-500 rounded-lg quiz-btn"
-          data-value="0"
-          data-question="q2">No</button
-        >
-      </div>
-    </div>
-
-    <!-- Pregunta 3 -->
-    <div>
-      <p class="font-semibold mb-2">
-        3. ¿Sufres de ansiedad o estrés constante?
-      </p>
-      <div class="flex gap-4">
-        <button
-          type="button"
-          class="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg quiz-btn"
-          data-value="1"
-          data-question="q3">Sí</button
-        >
-        <button
-          type="button"
-          class="px-4 py-2 bg-gray-400 hover:bg-gray-500 rounded-lg quiz-btn"
-          data-value="0"
-          data-question="q3">No</button
-        >
-      </div>
-    </div>
-
-    <!-- Pregunta 4 -->
-    <div>
-      <p class="font-semibold mb-2">
-        4. ¿Te gustaría mejorar tu creatividad o enfoque?
-      </p>
-      <div class="flex gap-4">
-        <button
-          type="button"
-          class="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg quiz-btn"
-          data-value="1"
-          data-question="q4">Sí</button
-        >
-        <button
-          type="button"
-          class="px-4 py-2 bg-gray-400 hover:bg-gray-500 rounded-lg quiz-btn"
-          data-value="0"
-          data-question="q4">No</button
-        >
-      </div>
-    </div>
-
-    <!-- Botón de enviar -->
-    <div class="text-center mt-10">
-      <button
-        type="submit"
-        class="bg-green-600 hover:bg-green-700 px-6 py-3 rounded-xl font-semibold transition-all"
+      <section
+        class="w-full h-screen bg-cover bg-center flex items-center justify-center relative"
       >
-        Ver resultado
-      </button>
-    </div>
-  </form>
+        <div class="absolute inset-0 bg-azul bg-opacity-50 backdrop-blur-sm">
+        </div>
+        <div class="z-10 text-center space-y-6 px-4">
+          <img
+            src={logo.src}
+            alt="Logo NERVUX"
+            class="mx-auto w-40 sm:w-56 md:w-72 mt-[-40px]"
+            loading="lazy"
+          />
+          <h1
+            class="text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight text-white"
+          >
+            Estimula tu mente, transforma tu vida
+          </h1>
+          <p class="text-lg sm:text-xl text-white max-w-2xl mx-auto">
+            Descubre el poder de la neurotecnología con NERVUX. Potenciamos tu
+            bienestar con tecnología avanzada y terapias seguras.
+          </p>
+          <a
+            href="/tratamientos"
+            class="inline-block px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-xl text-white font-semibold transition-all duration-300"
+          >
+            Nuestros servicios
+          </a>
+        </div>
+      </section>
 
-  <!-- Resultado -->
-  <div id="quizResult" class="mt-8 text-center hidden">
-    <h3 class="text-2xl font-bold mb-2">Resultado:</h3>
-    <p id="quizMessage" class="text-lg"></p>
-    <a
-      href="#servicios"
-      class="inline-block mt-6 px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl transition-all"
-    >
-      Explorar beneficios
-    </a>
-  </div>
-</section>
+      <!-- EMT Explanation Section -->
+      <EmtExplanation />
 
-<script>
-  if (typeof window !== "undefined") {
-    const quizBtns = document.querySelectorAll(".quiz-btn");
-    const progressBar = document.getElementById("quiz-progress");
-    const quizForm = document.getElementById("quizForm");
-    const quizResult = document.getElementById("quizResult");
-    const quizMessage = document.getElementById("quizMessage");
+      <!-- Interactive Quiz Advanced -->
+      <section
+        class="w-full max-w-3xl mx-auto border-4 border-amber-600 px-6 py-8 bg-blue-900 text-white lg:rounded-2xl scroll-mt-24"
+        id="quiz-nervux"
+      >
+        <h2 class="text-3xl font-bold mb-4 text-center">¿Es para ti?</h2>
+        <p class="text-lg text-center mb-8">
+          Contesta estas preguntas y descubre si la neuroestimulación puede
+          ayudarte.
+        </p>
 
-    const answers = {};
+        <div class="w-full bg-gray-200 rounded-full h-2.5 mb-4">
+          <div
+            id="quiz-progress"
+            class="bg-blue-600 h-2.5 rounded-full transition-all"
+            style="width: 0%"
+          >
+          </div>
+        </div>
 
-    quizBtns.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const question = btn.getAttribute("data-question");
-        const value = parseInt(btn.getAttribute("data-value"));
+        <form id="quizForm" class="space-y-6">
+          <!-- Pregunta 1 -->
+          <div>
+            <p class="font-semibold mb-2">
+              1. ¿Te cuesta concentrarte durante el día?
+            </p>
+            <div class="flex gap-4">
+              <button
+                type="button"
+                class="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg quiz-btn"
+                data-value="1"
+                data-question="q1">Sí</button
+              >
+              <button
+                type="button"
+                class="px-4 py-2 bg-gray-400 hover:bg-gray-500 rounded-lg quiz-btn"
+                data-value="0"
+                data-question="q1">No</button
+              >
+            </div>
+          </div>
 
-        // Guardar respuesta
-        answers[question] = value;
+          <!-- Pregunta 2 -->
+          <div>
+            <p class="font-semibold mb-2">
+              2. ¿Tienes problemas para dormir o descansar bien?
+            </p>
+            <div class="flex gap-4">
+              <button
+                type="button"
+                class="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg quiz-btn"
+                data-value="1"
+                data-question="q2">Sí</button
+              >
+              <button
+                type="button"
+                class="px-4 py-2 bg-gray-400 hover:bg-gray-500 rounded-lg quiz-btn"
+                data-value="0"
+                data-question="q2">No</button
+              >
+            </div>
+          </div>
 
-        // Quitar selección previa
-        document
-          .querySelectorAll(`[data-question="${question}"]`)
-          .forEach((b) => {
-            b.classList.remove("ring-4", "ring-green-400");
+          <!-- Pregunta 3 -->
+          <div>
+            <p class="font-semibold mb-2">
+              3. ¿Sufres de ansiedad o estrés constante?
+            </p>
+            <div class="flex gap-4">
+              <button
+                type="button"
+                class="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg quiz-btn"
+                data-value="1"
+                data-question="q3">Sí</button
+              >
+              <button
+                type="button"
+                class="px-4 py-2 bg-gray-400 hover:bg-gray-500 rounded-lg quiz-btn"
+                data-value="0"
+                data-question="q3">No</button
+              >
+            </div>
+          </div>
+
+          <!-- Pregunta 4 -->
+          <div>
+            <p class="font-semibold mb-2">
+              4. ¿Te gustaría mejorar tu creatividad o enfoque?
+            </p>
+            <div class="flex gap-4">
+              <button
+                type="button"
+                class="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg quiz-btn"
+                data-value="1"
+                data-question="q4">Sí</button
+              >
+              <button
+                type="button"
+                class="px-4 py-2 bg-gray-400 hover:bg-gray-500 rounded-lg quiz-btn"
+                data-value="0"
+                data-question="q4">No</button
+              >
+            </div>
+          </div>
+
+          <!-- Botón de enviar -->
+          <div class="text-center mt-10">
+            <button
+              type="submit"
+              class="bg-green-600 hover:bg-green-700 px-6 py-3 rounded-xl font-semibold transition-all"
+            >
+              Ver resultado
+            </button>
+          </div>
+        </form>
+
+        <!-- Resultado -->
+        <div id="quizResult" class="mt-8 text-center hidden">
+          <h3 class="text-2xl font-bold mb-2">Resultado:</h3>
+          <p id="quizMessage" class="text-lg"></p>
+          <a
+            href="#servicios"
+            class="inline-block mt-6 px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl transition-all"
+          >
+            Explorar beneficios
+          </a>
+        </div>
+      </section>
+
+      <script>
+        if (typeof window !== "undefined") {
+          const quizBtns = document.querySelectorAll(".quiz-btn");
+          const progressBar = document.getElementById("quiz-progress");
+          const quizForm = document.getElementById("quizForm");
+          const quizResult = document.getElementById("quizResult");
+          const quizMessage = document.getElementById("quizMessage");
+
+          const answers = {};
+
+          quizBtns.forEach((btn) => {
+            btn.addEventListener("click", () => {
+              const question = btn.getAttribute("data-question");
+              const value = parseInt(btn.getAttribute("data-value"));
+
+              // Guardar respuesta
+              answers[question] = value;
+
+              // Quitar selección previa
+              document
+                .querySelectorAll(`[data-question="${question}"]`)
+                .forEach((b) => {
+                  b.classList.remove("ring-4", "ring-green-400");
+                });
+
+              // Resaltar selección actual
+              btn.classList.add("ring-4", "ring-green-400");
+
+              // Actualizar progreso
+              const totalQuestions =
+                document.querySelectorAll(".quiz-btn[data-question]").length /
+                2;
+              const answered = Object.keys(answers).length;
+              const percent = Math.floor((answered / totalQuestions) * 100);
+              progressBar.style.width = percent + "%";
+            });
           });
 
-        // Resaltar selección actual
-        btn.classList.add("ring-4", "ring-green-400");
+          quizForm.addEventListener("submit", (e) => {
+            e.preventDefault();
 
-        // Actualizar progreso
-        const totalQuestions =
-          document.querySelectorAll(".quiz-btn[data-question]").length / 2;
-        const answered = Object.keys(answers).length;
-        const percent = Math.floor((answered / totalQuestions) * 100);
-        progressBar.style.width = percent + "%";
-      });
-    });
+            const total = Object.values(answers).reduce((a, b) => a + b, 0);
 
-    quizForm.addEventListener("submit", (e) => {
-      e.preventDefault();
+            let message = "";
+            if (total >= 3) {
+              message =
+                "¡Parece que podrías beneficiarte mucho de la neuroestimulación! Nuestros servicios podrían ayudarte a mejorar tu bienestar mental.";
+            } else if (total === 2) {
+              message =
+                "Tienes algunos síntomas que podrían mejorar con neuroestimulación. Vale la pena considerar una consulta.";
+            } else {
+              message =
+                "Tal vez no presentes síntomas significativos, pero si deseas potenciar tu rendimiento o relajación, también podemos ayudarte.";
+            }
 
-      const total = Object.values(answers).reduce((a, b) => a + b, 0);
+            quizMessage.textContent = message;
+            quizResult.classList.remove("hidden");
+            const offset =
+              quizResult.getBoundingClientRect().top + window.scrollY - 250;
+            window.scrollTo({ top: offset, behavior: "smooth" });
+          });
+        }
+      </script>
 
-      let message = "";
-      if (total >= 3) {
-        message =
-          "¡Parece que podrías beneficiarte mucho de la neuroestimulación! Nuestros servicios podrían ayudarte a mejorar tu bienestar mental.";
-      } else if (total === 2) {
-        message =
-          "Tienes algunos síntomas que podrían mejorar con neuroestimulación. Vale la pena considerar una consulta.";
-      } else {
-        message =
-          "Tal vez no presentes síntomas significativos, pero si deseas potenciar tu rendimiento o relajación, también podemos ayudarte.";
-      }
+      <!-- Testimonials Section -->
 
-      quizMessage.textContent = message;
-      quizResult.classList.remove("hidden");
-      const offset =
-        quizResult.getBoundingClientRect().top + window.scrollY - 250;
-      window.scrollTo({ top: offset, behavior: "smooth" });
-    });
-  }
-</script>
+      <Testimonials />
 
-
-          
-
-
-            <!-- Testimonials Section -->
-
-            <Testimonials/>
-          
-            <!-- Contact Section -->
-            <section class="w-full max-w-4xl p-8 bg-white shadow-lg rounded-2xl">
-    <p class="text-lg  mb-4">¿Tienes alguna pregunta? ¡Estamos aquí para ayudarte!</p>
-    <a
-      href="https://wa.me/message/KKV26ZI6AGNEK1"
-      class="inline-block px-8 py-4 bg-green-500 hover:bg-green-600 text-white font-bold rounded-xl shadow-lg text-lg transition-all duration-300 animate-bounce-on-view"
-      id="contacto-btn"
-    >
-      ¡Contáctanos por WhatsApp!
-    </a>
-</section>
-        </main>
-        <Footer />
-    </body>
+      <!-- Contact Section -->
+      <section class="w-full max-w-4xl p-8 bg-white shadow-lg rounded-2xl">
+        <p class="text-lg mb-4">
+          ¿Tienes alguna pregunta? ¡Estamos aquí para ayudarte!
+        </p>
+        <a
+          href="https://wa.me/message/KKV26ZI6AGNEK1"
+          class="inline-block px-8 py-4 bg-green-500 hover:bg-green-600 text-white font-bold rounded-xl shadow-lg text-lg transition-all duration-300 animate-bounce-on-view"
+          id="contacto-btn"
+        >
+          ¡Contáctanos por WhatsApp!
+        </a>
+      </section>
+    </main>
+    <Footer />
+  </body>
 </html>
 
 <style>
-@keyframes gradientAnimation {
-  0% {
-    background-position: 0% 50%;
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
   }
-  50% {
-    background-position: 100% 50%;
+  @keyframes bounce {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    20% {
+      transform: translateY(-18px);
+    }
+    40% {
+      transform: translateY(0);
+    }
+    60% {
+      transform: translateY(-8px);
+    }
+    80% {
+      transform: translateY(0);
+    }
   }
-  100% {
-    background-position: 0% 50%;
+  .animate-bounce-on-view {
+    animation: none;
   }
-}
-@keyframes bounce {
-  0%, 100% { transform: translateY(0);}
-  20% { transform: translateY(-18px);}
-  40% { transform: translateY(0);}
-  60% { transform: translateY(-8px);}
-  80% { transform: translateY(0);}
-}
-.animate-bounce-on-view {
-  animation: none;
-}
-.animate-bounce-on-view.active {
-  animation: bounce 1.5s cubic-bezier(.28,.84,.42,1) 5;
-}
+  .animate-bounce-on-view.active {
+    animation: bounce 1.5s cubic-bezier(0.28, 0.84, 0.42, 1) 5;
+  }
 
-.animated-gradient {
-  background: linear-gradient(270deg, #1b56ac, #1b56ac, #34adea);
-  background-size: 400% 400%;
-  animation: gradientAnimation 15s ease infinite;
-}
+  .animated-gradient {
+    background: linear-gradient(270deg, #1b56ac, #1b56ac, #34adea);
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+  }
 
-.animate-svg {
-  animation: svgMove 8s ease-in-out infinite;
-}
-
-.hover-title {
-    transition-transform transform hover:scale-105 hover:shadow-xl;
-}
+  .animate-svg {
+    animation: svgMove 8s ease-in-out infinite;
+  }
 </style>
 <script>
-if (typeof window !== "undefined") {
-  const btn = document.getElementById('contacto-btn');
-  if (btn) {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            btn.classList.add('active');
-          } else {
-            btn.classList.remove('active');
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
-    observer.observe(btn);
+  if (typeof window !== "undefined") {
+    const btn = document.getElementById("contacto-btn");
+    if (btn) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              btn.classList.add("active");
+            } else {
+              btn.classList.remove("active");
+            }
+          });
+        },
+        { threshold: 0.5 }
+      );
+      observer.observe(btn);
+    }
   }
-}
 </script>
