@@ -61,7 +61,9 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
       <Testimonials />
 
       <!-- Contact Section -->
-      <section class="w-full max-w-4xl p-8 bg-white shadow-lg rounded-2xl">
+      <section
+        class="w-full max-w-4xl p-8 bg-azul bg-opacity-50 shadow-lg rounded-2xl"
+      >
         <p class="text-lg mb-4">
           ¿Tienes alguna pregunta? ¡Estamos aquí para ayudarte!
         </p>
@@ -113,16 +115,6 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
   }
   .animate-bounce-on-view.active {
     animation: bounce 1.5s cubic-bezier(0.28, 0.84, 0.42, 1) 5;
-  }
-
-  .animated-gradient {
-    background: linear-gradient(270deg, #1b56ac, #1b56ac, #34adea);
-    background-size: 400% 400%;
-    animation: gradientAnimation 15s ease infinite;
-  }
-
-  .animate-svg {
-    animation: svgMove 8s ease-in-out infinite;
   }
 </style>
 <script>
