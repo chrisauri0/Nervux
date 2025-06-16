@@ -31,12 +31,19 @@ body {
   --blanco-2: #e7f1f8;
   --azul-negro:#000118;
 }
-.bg-azul{
+.bg-custom-azul{
   background: var(--azul-3);
+}
+.bg-custom-white-1 {
+  background-color: #FFFAFA; 
 }
 .bg-negro{
   background: var(--azul-negro);
 }
+.border-custom-white{
+  border-color: #FFFAFA;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: "Atkinson";
   font-style: italic;
