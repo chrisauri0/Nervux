@@ -62,9 +62,9 @@ button {
 }
 .destacado-borde {
   border-left-width: 4px;
-  border-left-color: var(
-    --azul-1
-  ); /* o usa directamente #1b56ac si prefieres */
+  border-right-width: 4px;
+  border-left-color: var( --azul-1 ); 
+  border-right-color: var( --azul-1 ); 
 }
 .borde-azul {
   border-color: var(--azul-4);

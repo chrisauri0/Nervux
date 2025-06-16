@@ -1,6 +1,6 @@
 ---
-import HeaderLink from './HeaderLink.astro';
-import { SITE_TITLE } from '../consts';
+import HeaderLink from "./HeaderLink.astro";
+import { SITE_TITLE } from "../consts";
 ---
 
 <header class="sticky top-0 z-50 bg-white text-black shadow-2xl">
@@ -14,16 +14,37 @@ import { SITE_TITLE } from '../consts';
       <HeaderLink href="/tratamientos">Tratamientos</HeaderLink>
       <HeaderLink href="/preguntas">Preguntas frecuentes</HeaderLink>
       <HeaderLink href="/antecedentes">Antecedentes</HeaderLink>
-      <HeaderLink href="/contacto">Contacto</HeaderLink>
+      <!-- <HeaderLink href="/contacto">Contacto</HeaderLink> -->
     </div>
     <!-- Botón Menú Móvil -->
-    <button id="menu-button" aria-expanded="false" class="md:hidden flex items-center p-2 rounded text-white   hover:text-accent hover:border-accent">
-      <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-menu-2"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 6l16 0" /><path d="M4 12l16 0" /><path d="M4 18l16 0" /></svg>
-      
+    <button
+      id="menu-button"
+      aria-expanded="false"
+      class="md:hidden flex items-center p-2 rounded text-white hover:text-accent hover:border-accent"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="icon icon-tabler icons-tabler-outline icon-tabler-menu-2"
+        ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+          d="M4 6l16 0"></path><path d="M4 12l16 0"></path><path d="M4 18l16 0"
+        ></path></svg
+      >
     </button>
   </nav>
   <!-- Menú Móvil -->
-  <div id="mobile-menu" class="hidden md:hidden flex flex-col space-y-2 bg-primary text-black p-4" title="Menú">
+  <div
+    id="mobile-menu"
+    class="hidden md:hidden flex flex-col space-y-2 bg-primary text-black p-4"
+    title="Menú"
+  >
     <HeaderLink href="/">Inicio</HeaderLink>
     <HeaderLink href="/tratamientos">Tratamientos</HeaderLink>
     <HeaderLink href="/preguntas">Preguntas frecuentes</HeaderLink>

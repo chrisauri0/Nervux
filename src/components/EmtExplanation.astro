@@ -1,8 +1,10 @@
 ---
 import servicio1 from "../assets/servicios/servicio-1.webp";
+import { fade } from "astro:transitions";
 ---
 
 <section
+  transition:animate={fade({ duration: "1.5s" })}
   id="emt-info"
   class="w-full px-4 sm:px-8 md:px-20 lg:px-40 py-10 md:py-16 bg-custom-white-1 text-gray-900"
 >

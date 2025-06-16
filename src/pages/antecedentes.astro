@@ -1,85 +1,109 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { ClientRouter } from "astro:transitions";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 // import pdfSvg from '../assets/svg/pdf-svgrepo-com.svg';
-import Historia from '../content/historia.mdx'; // Importa el archivo MDX
+import Historia from "../content/historia.mdx"; // Importa el archivo MDX
 
 const pdfs = [
-//   { name: 'Permiso COFEPRIS', path: '/src/assets/pdfs/PermisoCofepris.pdf', icon: pdfSvg.src },
+  //   { name: 'Permiso COFEPRIS', path: '/src/assets/pdfs/PermisoCofepris.pdf', icon: pdfSvg.src },
   // { name: 'Documento 2', path: '/path/to/document2.pdf', icon: pdfSvg.src },
   // { name: 'Documento 3', path: '/path/to/document3.pdf', icon: pdfSvg.src },
 ];
-
 ---
 
 <!doctype html>
 <html lang="en">
-    <head>
-        <BaseHead title={`Historia y Evidencia Científica - ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
-    </head>
-    <body class="bg-light text-black">
-        <Header />
-        <main class="flex flex-col items-center min-h-screen gap-12 w-full p-8">
-            <!-- Historia Section -->
-            <section class="w-full max-w-4xl p-8 bg-white shadow-lg rounded-2xl">
-                <article>
-                  <Historia />
-                </article>
-              </section>
-              
+  <head>
+    <BaseHead
+      title={`Historia y Evidencia Científica - ${SITE_TITLE}`}
+      description={SITE_DESCRIPTION}
+    />
+    <ClientRouter />
+  </head>
+  <body class="bg-light text-black">
+    <Header />
+    <main class="flex flex-col items-center min-h-screen gap-12 w-full p-8">
+      <!-- Historia Section -->
+      <section class="w-full max-w-4xl p-8 bg-white shadow-lg rounded-2xl">
+        <article>
+          <Historia />
+        </article>
+      </section>
 
-            <!-- Evidencia Científica Section -->
-            <section class="w-full max-w-4xl p-8 bg-white shadow-lg rounded-2xl">
-                <h2 class="text-2xl font-bold mb-4">Evidencia Científica</h2>
-                <p class="text-lg text-gray-700 mb-6">
-                    La EMT ha sido ampliamente investigada y respaldada por la comunidad científica. A continuación, se presentan algunos de los estudios más destacados que demuestran la eficacia de la EMT en el tratamiento de diversos trastornos.
-                </p>
-                <ul class="list-disc list-inside text-lg text-gray-700 space-y-4">
-                    <li>
-                        <strong>Depresión:</strong> Un estudio publicado en el <em>Journal of Clinical Psychiatry</em> encontró que la EMT es eficaz en el tratamiento de la depresión resistente al tratamiento.
-                    </li>
-                    <li>
-                        <strong>Ansiedad:</strong> Investigaciones en el <em>Journal of Anxiety Disorders</em> han demostrado que la EMT puede reducir significativamente los síntomas de ansiedad.
-                    </li>
-                    <li>
-                        <strong>Trastorno Obsesivo-Compulsivo (TOC):</strong> Un estudio en el <em>American Journal of Psychiatry</em> mostró que la EMT puede ser un tratamiento eficaz para el TOC.
-                    </li>
-                </ul>
-               
-            </section>
+      <!-- Evidencia Científica Section -->
+      <section class="w-full max-w-4xl p-8 bg-white shadow-lg rounded-2xl">
+        <h2 class="text-2xl font-bold mb-4">Evidencia Científica</h2>
+        <p class="text-lg text-gray-700 mb-6">
+          La EMT ha sido ampliamente investigada y respaldada por la comunidad
+          científica. A continuación, se presentan algunos de los estudios más
+          destacados que demuestran la eficacia de la EMT en el tratamiento de
+          diversos trastornos.
+        </p>
+        <ul class="list-disc list-inside text-lg text-gray-700 space-y-4">
+          <li>
+            <strong>Depresión:</strong> Un estudio publicado en el <em
+              >Journal of Clinical Psychiatry</em
+            > encontró que la EMT es eficaz en el tratamiento de la depresión resistente
+            al tratamiento.
+          </li>
+          <li>
+            <strong>Ansiedad:</strong> Investigaciones en el <em
+              >Journal of Anxiety Disorders</em
+            > han demostrado que la EMT puede reducir significativamente los síntomas
+            de ansiedad.
+          </li>
+          <li>
+            <strong>Trastorno Obsesivo-Compulsivo (TOC):</strong> Un estudio en el
+            <em>American Journal of Psychiatry</em> mostró que la EMT puede ser un
+            tratamiento eficaz para el TOC.
+          </li>
+        </ul>
+      </section>
 
-            <!-- Estudios y Referencias Section -->
-            <section class="w-full max-w-4xl p-8 bg-white shadow-lg rounded-2xl">
-                <h2 class="text-2xl font-bold mb-4">Estudios y Referencias</h2>
-                <ul class="list-disc list-inside text-lg text-gray-700 space-y-4">
-                    <li>
-                        George, M. S., et al. (2000). "Daily left prefrontal transcranial magnetic stimulation therapy for major depressive disorder: a sham-controlled randomized trial." <em>Archives of General Psychiatry</em>, 57(5), 507-512.
-                    </li>
-                    <li>
-                        O'Reardon, J. P., et al. (2007). "Efficacy and safety of transcranial magnetic stimulation in the acute treatment of major depression: a multisite randomized controlled trial." <em>Biological Psychiatry</em>, 62(11), 1208-1216.
-                    </li>
-                    <li>
-                        Slotema, C. W., et al. (2010). "Should we expand the toolbox of psychiatric treatment methods to include repetitive transcranial magnetic stimulation (rTMS)? A meta-analysis of the efficacy of rTMS in psychiatric disorders." <em>Journal of Clinical Psychiatry</em>, 71(7), 873-884.
-                    </li>
-                </ul>
-            </section>
+      <!-- Estudios y Referencias Section -->
+      <section class="w-full max-w-4xl p-8 bg-white shadow-lg rounded-2xl">
+        <h2 class="text-2xl font-bold mb-4">Estudios y Referencias</h2>
+        <ul class="list-disc list-inside text-lg text-gray-700 space-y-4">
+          <li>
+            George, M. S., et al. (2000). "Daily left prefrontal transcranial
+            magnetic stimulation therapy for major depressive disorder: a
+            sham-controlled randomized trial." <em
+              >Archives of General Psychiatry</em
+            >, 57(5), 507-512.
+          </li>
+          <li>
+            O'Reardon, J. P., et al. (2007). "Efficacy and safety of
+            transcranial magnetic stimulation in the acute treatment of major
+            depression: a multisite randomized controlled trial." <em
+              >Biological Psychiatry</em
+            >, 62(11), 1208-1216.
+          </li>
+          <li>
+            Slotema, C. W., et al. (2010). "Should we expand the toolbox of
+            psychiatric treatment methods to include repetitive transcranial
+            magnetic stimulation (rTMS)? A meta-analysis of the efficacy of rTMS
+            in psychiatric disorders." <em>Journal of Clinical Psychiatry</em>,
+            71(7), 873-884.
+          </li>
+        </ul>
+      </section>
 
-            <!-- Recursos y Enlaces Section -->
-            <section class="w-full max-w-4xl p-8 bg-white shadow-lg rounded-2xl">
-              <h2 class="text-2xl font-bold mb-4">Recursos y Enlaces</h2>
-              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- {pdfs.map((pdf) => (
+      <!-- Recursos y Enlaces Section -->
+      <section class="w-full max-w-4xl p-8 bg-white shadow-lg rounded-2xl">
+        <h2 class="text-2xl font-bold mb-4">Recursos y Enlaces</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- {pdfs.map((pdf) => (
                   <a href={pdf.path} target="_blank" class="flex flex-col items-center p-4 bg-gray-100 rounded-lg shadow-md hover:shadow-lg transition">
                     <img src={pdf.icon} alt="PDF Icon" class="w-12 h-12 mb-2" />
                     <span class="text-lg font-medium text-gray-800">{pdf.name}</span>
                   </a>
                 ))} -->
-              </div>
-            </section>
-        </main>
-        <Footer />
-    </body>
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </body>
 </html>
-

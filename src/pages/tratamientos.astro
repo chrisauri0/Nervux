@@ -1,5 +1,6 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
+import { ClientRouter } from "astro:transitions";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import servicio1 from "../assets/servicios/servicio-1.webp";
@@ -13,14 +14,18 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
     <BaseHead
       title={`Tratamientos - ${SITE_TITLE}`}
       description={SITE_DESCRIPTION}
-    />
-  </head>
+    /></head
+  >
+  <ClientRouter />
+
   <body class="bg-light text-black">
     <Header />
     <main class="flex flex-col items-center min-h-screen gap-12 w-full p-8">
       <!-- Treatments Section -->
-      <section class="w-full max-w-4xl p-8 bg-white shadow-lg rounded-2xl">
-        <h1 class="text-3xl font-bold mb-6">Nuestros Tratamientos</h1>
+      <section class="w-full max-w-4xl p-8 bg-white">
+        <h1 class="text-3xl font-bold mb-6 text-center">
+          Nuestros Tratamientos
+        </h1>
         <p class="text-lg text-gray-700 mb-6">
           En NERVUX Neurotechnology, ofrecemos una variedad de tratamientos
           avanzados para la optimización de la salud cerebral. Nuestros
@@ -46,7 +51,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
               psiquiátricos.
             </p>
             <button>
-              <a href="/emt">Más Información</a>
+              <a href="/preguntas">Más Información</a>
             </button>
           </div>
           <!-- Treatment 2 -->
