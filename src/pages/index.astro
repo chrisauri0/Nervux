@@ -146,8 +146,8 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
     animation: bounce 1.5s cubic-bezier(0.28, 0.84, 0.42, 1) 5;
   }
 </style>
-<script>
-  if (typeof window !== "undefined") {
+<script is:inline>
+  function initContactButton() {
     const btn = document.getElementById("contacto-btn");
     if (btn) {
       const observer = new IntersectionObserver(
@@ -164,5 +164,14 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
       );
       observer.observe(btn);
     }
+  }
+  if (typeof window !== "undefined") {
+    if (document.readyState === "complete") {
+      initContactButton();
+    } else {
+      window.addEventListener("load", initContactButton);
+    }
+
+    document.addEventListener("astro:page-load", initContactButton); // para SPA
   }
 </script>
