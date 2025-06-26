@@ -133,15 +133,13 @@
 </section>
 
 <script is:inline>
-  if (typeof window !== "undefined") {
+  function initQuiz() {
     const percentSpan = document.getElementById("quiz-percent");
-
     const quizBtns = document.querySelectorAll(".quiz-btn");
     const progressBar = document.getElementById("quiz-progress");
     const quizForm = document.getElementById("quizForm");
     const quizResult = document.getElementById("quizResult");
     const quizMessage = document.getElementById("quizMessage");
-
     const answers = {};
 
     quizBtns.forEach((btn) => {
@@ -149,27 +147,20 @@
         const question = btn.getAttribute("data-question");
         const value = parseInt(btn.getAttribute("data-value"));
 
-        // Guardar respuesta
         answers[question] = value;
 
-        // Quitar selección previa
         document
           .querySelectorAll(`[data-question="${question}"]`)
-          .forEach((b) => {
-            b.classList.remove("ring-4", "ring-cyan-400");
-          });
+          .forEach((b) => b.classList.remove("ring-4", "ring-cyan-400"));
 
-        // Resaltar selección actual
         btn.classList.add("ring-4", "ring-cyan-400");
 
-        // Actualizar progreso
         const totalQuestions =
           document.querySelectorAll(".quiz-btn[data-question]").length / 2;
         const answered = Object.keys(answers).length;
         const percent = Math.floor((answered / totalQuestions) * 100);
 
         if (percentSpan) percentSpan.textContent = percent + "%";
-
         if (progressBar) progressBar.style.width = percent + "%";
       });
     });
@@ -178,6 +169,7 @@
       quizForm.addEventListener("submit", (e) => {
         e.preventDefault();
         let message = "";
+
         if (Object.keys(answers).length < 4) {
           message = "Por favor, responde todas las preguntas.";
           if (quizMessage) quizMessage.textContent = message;
@@ -208,7 +200,18 @@
       });
     }
   }
+
+  if (typeof window !== "undefined") {
+    if (document.readyState === "complete") {
+      initQuiz();
+    } else {
+      window.addEventListener("load", initQuiz);
+    }
+
+    document.addEventListener("astro:page-load", initQuiz); // para SPA
+  }
 </script>
+
 <style>
   @keyframes bounce {
     0%,
