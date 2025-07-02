@@ -1,71 +1,131 @@
 ---
 const today = new Date();
-import cofepris from '../assets/fda/fda-cofepris.webp';
-import fdaEmt from '../assets/fda/fda-emt.webp';
+import cofepris from "../assets/fda/fda-cofepris.webp";
+import fdaEmt from "../assets/fda/fda-emt.webp";
 ---
+
 <footer class="bg-black text-white py-8">
-  <div class="container mx-auto text-center">
-    
+  <div class="w-full flex justify-center mt-8">
+    <div class="w-full max-w-3xl rounded-xl overflow-hidden shadow-lg">
+      <h1 class="text-center mb-4 text-2xl">Ubicación de Nervux</h1>
+      <iframe
+        title="Ubicación NERVUX"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3732.067785585401!2d-100.4034559!3d20.6574895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d35b6e1e079c31%3A0x6b63252b2f1f4469!2sCreativity%20and%20Innovation%20Center%204.0%20CIC%204.0%20UTEQ!5e0!3m2!1ses!2smx!4v1718050000000!5m2!1ses!2smx"
+        width="100%"
+        height="350"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+
+  <div class="container mx-auto text-center mt-8">
     <!-- Imagen de FDA -->
-    <div class="mb-4 flex flex-col sm:flex-row justify-center items-center sm:space-x-4 space-y-4 sm:space-y-0">
-      <img src={cofepris.src} loading="lazy" alt="FDA Approved" class="h-32 w-auto sm:h-40" />
-      <img src={fdaEmt.src} loading="lazy" alt="FDA Approved2" class="h-32 w-auto sm:h-40" />
+    <div
+      class="mb-4 flex flex-col sm:flex-row justify-center items-center sm:space-x-4 space-y-4 sm:space-y-0"
+    >
+      <img
+        src={cofepris.src}
+        loading="lazy"
+        alt="FDA Approved"
+        class="h-32 w-auto sm:h-40"
+      />
+      <img
+        src={fdaEmt.src}
+        loading="lazy"
+        alt="FDA Approved2"
+        class="h-32 w-auto sm:h-40"
+      />
     </div>
 
     <!-- Derechos de autor -->
-    <strong class="mb-4 text-xl block">&copy; {new Date().getFullYear()} NERVUX Neurotechnology. All rights reserved.</strong>
+    <strong class="mb-4 text-xl block"
+      >&copy; {new Date().getFullYear()} NERVUX Neurotechnology. All rights reserved.</strong
+    >
 
-    
-    
     <!-- Información de contacto -->
     <div class="contact-info text-xl mb-4">
-      <p>Email: <a href="mailto:Nervux1@gmail.com" class="text-accent hover:underline">Nervux1@gmail.com</a></p>
+      <p>
+        Email: <a
+          href="mailto:Nervux1@gmail.com"
+          class="text-accent hover:underline">Nervux1@gmail.com</a
+        >
+      </p>
       <div class="flex justify-center space-x-6 mt-4">
         <!-- Instagram -->
-        <a 
-        href="https://www.instagram.com/nervux_neurotecnologias?igsh=MXVjZXhjMHMyYzMydw%3D%3D&utm_source=qr" 
-        title="Cuenta de Instagram de NERVUX" 
-        target="_blank" 
-        rel="noopener noreferrer" 
-        class="hover:text-accent transition"
-      >
-        <span class="sr-only">Ir a Instagram de NERVUX</span>
-        <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M7.75 2C4.126 2 2 4.126 2 7.75v8.5C2 19.874 4.126 22 7.75 22h8.5c3.624 0 5.75-2.126 5.75-5.75v-8.5C22 4.126 19.874 2 16.25 2h-8.5zM12 7.25a4.75 4.75 0 1 1 0 9.5 4.75 4.75 0 0 1 0-9.5zm0 2a2.75 2.75 0 1 0 0 5.5 2.75 2.75 0 0 0 0-5.5zM18 6.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
-        </svg>
-      </a>
-      
-       
+        <a
+          href="https://www.instagram.com/nervux_neurotecnologias?igsh=MXVjZXhjMHMyYzMydw%3D%3D&utm_source=qr"
+          title="Cuenta de Instagram de NERVUX"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:text-accent transition"
+        >
+          <span class="sr-only">Ir a Instagram de NERVUX</span>
+          <svg
+            class="h-8 w-8"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              d="M7.75 2C4.126 2 2 4.126 2 7.75v8.5C2 19.874 4.126 22 7.75 22h8.5c3.624 0 5.75-2.126 5.75-5.75v-8.5C22 4.126 19.874 2 16.25 2h-8.5zM12 7.25a4.75 4.75 0 1 1 0 9.5 4.75 4.75 0 0 1 0-9.5zm0 2a2.75 2.75 0 1 0 0 5.5 2.75 2.75 0 0 0 0-5.5zM18 6.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"
+            ></path>
+          </svg>
+        </a>
+
         <!-- TikTok -->
-        <a href=" https://www.tiktok.com/@nervux_neurotecnol?_t=ZM-8uR5iIMoSqV&_r=1" target="_blank" title="Cuenta de TikTok de NERVUX" rel="noopener noreferrer" class="hover:text-accent transition">
+        <a
+          href=" https://www.tiktok.com/@nervux_neurotecnol?_t=ZM-8uR5iIMoSqV&_r=1"
+          target="_blank"
+          title="Cuenta de TikTok de NERVUX"
+          rel="noopener noreferrer"
+          class="hover:text-accent transition"
+        >
           <span class="sr-only">Ir a TikTok de NERVUX</span>
           <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M16 5.07a4.75 4.75 0 0 0 3.66 1.57V9.5a7.62 7.62 0 0 1-4.09-1.16v5.97a5.75 5.75 0 1 1-5.41-5.73v2.33a3.42 3.42 0 1 0 2.59 3.3V2.5h3.25v2.57z"/>
+            <path
+              d="M16 5.07a4.75 4.75 0 0 0 3.66 1.57V9.5a7.62 7.62 0 0 1-4.09-1.16v5.97a5.75 5.75 0 1 1-5.41-5.73v2.33a3.42 3.42 0 1 0 2.59 3.3V2.5h3.25v2.57z"
+            ></path>
           </svg>
         </a>
 
         <!-- Facebook -->
-        <a href="https://www.facebook.com/share/1EJ7YExSaH/?mibextid=wwXIfr
-%3D&utm_source=qr" target="_blank" title="Cuenta de Facebook de NERVUX" rel="noopener noreferrer" class="hover:text-accent transition">
+        <a
+          href="https://www.facebook.com/share/1EJ7YExSaH/?mibextid=wwXIfr
+%3D&utm_source=qr"
+          target="_blank"
+          title="Cuenta de Facebook de NERVUX"
+          rel="noopener noreferrer"
+          class="hover:text-accent transition"
+        >
           <span class="sr-only">Ir a Facebook de NERVUX</span>
           <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M13.5 9H16V6h-2.5V5c0-.63.11-.93.94-.93H16V1.06A24 24 0 0 0 13.92 1c-2.58 0-3.42 1.28-3.42 3.35V6H8v3h2.5v9H13.5V9z"/>
+            <path
+              d="M13.5 9H16V6h-2.5V5c0-.63.11-.93.94-.93H16V1.06A24 24 0 0 0 13.92 1c-2.58 0-3.42 1.28-3.42 3.35V6H8v3h2.5v9H13.5V9z"
+            ></path>
           </svg>
         </a>
-  
+
         <!-- WhatsApp -->
-        <a href="https://wa.me/message/KKV26ZI6AGNEK1" target="_blank" title="Cuenta de WhatsApp de NERVUX" rel="noopener noreferrer" class="hover:text-accent transition">
+        <a
+          href="https://wa.me/message/KKV26ZI6AGNEK1"
+          target="_blank"
+          title="Cuenta de WhatsApp de NERVUX"
+          rel="noopener noreferrer"
+          class="hover:text-accent transition"
+        >
           <span class="sr-only">Ir a WhatsApp de NERVUX</span>
           <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 2C6.477 2 2 6.477 2 12a9.94 9.94 0 0 0 1.407 5.15L2 22l5.01-1.38A9.944 9.944 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a8 8 0 0 1-4.33-1.26l-.31-.2-2.97.81.8-2.9-.2-.31A7.982 7.982 0 1 1 12 20zm3.995-5.85c-.215-.11-1.275-.63-1.474-.7s-.343-.11-.486.11-.56.7-.687.85c-.127.14-.253.16-.468.05a5.951 5.951 0 0 1-2.9-2.53c-.22-.37.22-.34.63-1.13.07-.14.04-.26-.02-.37-.06-.11-.486-1.17-.66-1.6-.17-.42-.34-.36-.467-.36h-.4c-.14 0-.367.05-.56.26s-.733.72-.733 1.75.75 2.01.86 2.15c.11.14 1.5 2.3 3.64 3.2.51.22.91.35 1.22.45.515.165.98.14 1.35.09.41-.06 1.275-.52 1.455-1.02.18-.5.18-.94.12-1.02s-.2-.14-.42-.25z"/>
+            <path
+              d="M12 2C6.477 2 2 6.477 2 12a9.94 9.94 0 0 0 1.407 5.15L2 22l5.01-1.38A9.944 9.944 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a8 8 0 0 1-4.33-1.26l-.31-.2-2.97.81.8-2.9-.2-.31A7.982 7.982 0 1 1 12 20zm3.995-5.85c-.215-.11-1.275-.63-1.474-.7s-.343-.11-.486.11-.56.7-.687.85c-.127.14-.253.16-.468.05a5.951 5.951 0 0 1-2.9-2.53c-.22-.37.22-.34.63-1.13.07-.14.04-.26-.02-.37-.06-.11-.486-1.17-.66-1.6-.17-.42-.34-.36-.467-.36h-.4c-.14 0-.367.05-.56.26s-.733.72-.733 1.75.75 2.01.86 2.15c.11.14 1.5 2.3 3.64 3.2.51.22.91.35 1.22.45.515.165.98.14 1.35.09.41-.06 1.275-.52 1.455-1.02.18-.5.18-.94.12-1.02s-.2-.14-.42-.25z"
+            ></path>
           </svg>
         </a>
       </div>
-      
     </div>
 
     <!-- Redes Sociales -->
-    
   </div>
 </footer>
 
@@ -74,7 +134,7 @@ import fdaEmt from '../assets/fda/fda-emt.webp';
     background-color: var(--color-primary);
     color: var(--color-black);
   }
-  
+
   .contact-info a {
     color: var(--color-accent);
     text-decoration: none;
