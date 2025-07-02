@@ -1,68 +1,66 @@
-# Web oficial Nervux tecnology 
-
 ```sh
 git clone https://github.com/chrisauri0/Nervux.git
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/blog)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/blog)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/blog/devcontainer.json)
+# NERVUX Neurotechnology
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Sitio web oficial de NERVUX Neurotechnology, empresa especializada en neurotecnologías para la optimización de la salud cerebral. Ofrecemos información sobre tratamientos innovadores como la Estimulación Magnética Transcraneal (EMT), testimonios, preguntas frecuentes y contacto.
 
-![blog](https://github.com/withastro/astro/assets/2244813/ff10799f-a816-4703-b967-c78997e8323d)
+## 🚀 Tecnologías utilizadas
 
-Features:
+- [Astro](https://astro.build/) (framework principal)
+- [MDX](https://mdxjs.com/) para contenido enriquecido
+- [Tailwind CSS](https://tailwindcss.com/) para estilos
+- [Netlify](https://www.netlify.com/) para despliegue
+- Integraciones: `@astrojs/mdx`, `@astrojs/sitemap`, `@tailwindcss/vite`
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
+## 📁 Estructura del proyecto
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-├── public/
+```
+├── public/                # Archivos estáticos (fuentes, imágenes, etc.)
 ├── src/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
-├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
+│   ├── assets/            # Imágenes y recursos multimedia
+│   ├── components/        # Componentes Astro reutilizables
+│   ├── content/           # Contenido en MDX
+│   ├── layouts/           # Layouts base
+│   ├── pages/             # Páginas principales del sitio
+│   └── styles/            # Estilos globales
+├── .astro/                # Archivos generados por Astro
+├── package.json           # Dependencias y scripts
+├── tailwind.config.js     # Configuración de Tailwind CSS
+├── astro.config.mjs       # Configuración de Astro
+├── tsconfig.json          # Configuración de TypeScript
+└── netlify.toml           # Configuración de despliegue en Netlify
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## 🧑‍💻 Scripts principales
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+| Comando           | Acción                                              |
+| ----------------- | --------------------------------------------------- |
+| `npm install`     | Instala las dependencias                            |
+| `npm run dev`     | Inicia el servidor de desarrollo (`localhost:4321`) |
+| `npm run build`   | Genera el sitio para producción en `./dist/`        |
+| `npm run preview` | Previsualiza el sitio generado                      |
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
+## 🌐 Estructura de páginas
 
-Any static assets, like images, can be placed in the `public/` directory.
+- `/` — Página principal (Hero, explicación EMT, quiz, testimonios, contacto)
+- `/tratamientos` — Información sobre tratamientos ofrecidos
+- `/preguntas` — Preguntas frecuentes y profesionales
+- `/antecedentes` — Historia y evidencia científica de la EMT
+- `/contacto` — Formulario de contacto
+- `/404` — Página de error personalizada
 
-## 🧞 Commands
+## 🎨 Paleta de colores y tipografías
 
-All commands are run from the root of the project, from a terminal:
+- Colores principales: `#010119`, `#1b56ac`, `#0de7fc`, `#a6a6a6`, `#e7f1f8`, `#ffffff`, `#000000`
+- Tipografías: Glacial Indifference, Roboto, League Spartan, Atkinson
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## 📄 Créditos y licencia
 
-## 👀 Want to learn more?
+- Basado en [Bear Blog](https://github.com/HermanMartinus/bearblog/)
+- Licencia MIT para estilos base
 
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+---
 
-## Credit
-
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+¿Dudas o sugerencias? Contáctanos en [Nervux1@gmail.com](mailto:Nervux1@gmail.com) o por WhatsApp al 4424488313.
