@@ -14,6 +14,7 @@ import { SITE_TITLE } from "../consts";
       <HeaderLink href="/tratamientos">Tratamientos</HeaderLink>
       <HeaderLink href="/preguntas">Preguntas frecuentes</HeaderLink>
       <HeaderLink href="/antecedentes">Antecedentes</HeaderLink>
+      <HeaderLink href="/nosotros">Nosotros</HeaderLink>
       <!-- <HeaderLink href="/contacto">Contacto</HeaderLink> -->
     </div>
     <!-- Botón Menú Móvil -->
@@ -49,21 +50,41 @@ import { SITE_TITLE } from "../consts";
     <HeaderLink href="/tratamientos">Tratamientos</HeaderLink>
     <HeaderLink href="/preguntas">Preguntas frecuentes</HeaderLink>
     <HeaderLink href="/antecedentes">Antecedentes</HeaderLink>
-    <HeaderLink href="/contacto">Contacto</HeaderLink>
+    <HeaderLink href="/nosotros">Nosotros</HeaderLink>
   </div>
-</header>
+  <script is:inline>
+    function initMenuMovil() {
+      const menuButton = document.getElementById("menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const menuButton = document.getElementById("menu-button");
-    const mobileMenu = document.getElementById("mobile-menu");
+      // Verifica que no se haya inicializado antes
+      if (
+        !menuButton ||
+        !mobileMenu ||
+        menuButton.dataset.initialized === "true"
+      )
+        return;
 
-    if (menuButton && mobileMenu) {
+      menuButton.dataset.initialized = "true"; // evita doble registro
+
       menuButton.addEventListener("click", function () {
         const isOpen = mobileMenu.classList.contains("hidden");
         menuButton.setAttribute("aria-expanded", isOpen ? "true" : "false");
         mobileMenu.classList.toggle("hidden");
       });
     }
-  });
-</script>
+
+    if (typeof window !== "undefined") {
+      if (
+        document.readyState === "complete" ||
+        document.readyState === "interactive"
+      ) {
+        initMenuMovil();
+      } else {
+        window.addEventListener("load", initMenuMovil);
+      }
+
+      document.addEventListener("astro:page-load", initMenuMovil);
+    }
+  </script>
+</header>
