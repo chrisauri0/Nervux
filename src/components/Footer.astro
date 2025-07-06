@@ -144,32 +144,45 @@ import fdaEmt from "../assets/fda/fda-emt.webp";
   }
 </style>
 <script is:inline>
-  if (typeof window !== "undefined") {
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const mapContainer = document.getElementById("map-placeholder");
+  // Cargar el mapa de Google Maps solo cuando el usuario lo vea
 
-          const iframe = document.createElement("iframe");
-          iframe.src =
-            "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3732.067785585401!2d-100.4034559!3d20.6574895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d35b6e1e079c31%3A0x6b63252b2f1f4469!2sCreativity%20and%20Innovation%20Center%204.0%20CIC%204.0%20UTEQ!5e0!3m2!1ses!2smx!4v1718050000000!5m2!1ses!2smx";
-          iframe.width = "100%";
-          iframe.height = "350";
-          iframe.style.border = "0";
-          iframe.allowFullscreen = true;
-          iframe.loading = "lazy";
-          iframe.referrerPolicy = "no-referrer-when-downgrade";
-          iframe.title = "Ubicación NERVUX";
+  function loadGoogleMaps() {
+    if (typeof window !== "undefined") {
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const mapContainer = document.getElementById("map-placeholder");
 
-          mapContainer.innerHTML = ""; // Limpia el placeholder
-          mapContainer.appendChild(iframe);
+            const iframe = document.createElement("iframe");
+            iframe.src =
+              "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3732.067785585401!2d-100.4034559!3d20.6574895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d35b6e1e079c31%3A0x6b63252b2f1f4469!2sCreativity%20and%20Innovation%20Center%204.0%20CIC%204.0%20UTEQ!5e0!3m2!1ses!2smx!4v1718050000000!5m2!1ses!2smx";
+            iframe.width = "100%";
+            iframe.height = "350";
+            iframe.style.border = "0";
+            iframe.allowFullscreen = true;
+            iframe.loading = "lazy";
+            iframe.referrerPolicy = "no-referrer-when-downgrade";
+            iframe.title = "Ubicación NERVUX";
 
-          observer.unobserve(entry.target); // Ya no necesitas seguir observando
-        }
+            mapContainer.innerHTML = ""; // Limpia el placeholder
+            mapContainer.appendChild(iframe);
+
+            observer.unobserve(entry.target); // Ya no necesitas seguir observando
+          }
+        });
       });
-    });
 
-    const target = document.getElementById("map-container");
-    if (target) observer.observe(target);
+      const target = document.getElementById("map-container");
+      if (target) observer.observe(target);
+    }
+  }
+  if (typeof window !== "undefined") {
+    if (document.readyState === "complete") {
+      loadGoogleMaps();
+    } else {
+      window.addEventListener("load", loadGoogleMaps);
+    }
+
+    document.addEventListener("astro:page-load", loadGoogleMaps); // para SPA
   }
 </script>
