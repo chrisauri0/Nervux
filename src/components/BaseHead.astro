@@ -1,6 +1,4 @@
 ---
-// Import the global.css file here so that it is included on
-// all pages through the use of the <BaseHead /> component.
 import "../styles/global.css";
 import { SITE_TITLE } from "../consts";
 
@@ -11,14 +9,25 @@ interface Props {
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-
-const { title, description } = Astro.props;
+const { title, description, image } = Astro.props;
+const fullImage =
+  image ?? new URL("/assets/logo/logo-sin-fondo.webp", Astro.site).toString(); // Imagen por defecto
 ---
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="index, follow" />
+<meta name="generator" content={Astro.generator} />
+
+<!-- Canonical -->
+<link rel="canonical" href={canonicalURL} />
+
+<!-- Favicons -->
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="manifest" href="/site.webmanifest" />
+
+<!-- Sitemap & RSS -->
 <link rel="sitemap" href="/sitemap-index.xml" />
 <link
   rel="alternate"
@@ -26,10 +35,8 @@ const { title, description } = Astro.props;
   title={SITE_TITLE}
   href={new URL("rss.xml", Astro.site)}
 />
-<meta name="generator" content={Astro.generator} />
 
-<!-- Font preloads -->
-
+<!-- Font preload -->
 {
   Astro.url.pathname === "/" ? (
     <link
@@ -50,10 +57,34 @@ const { title, description } = Astro.props;
   )
 }
 
-<!-- Canonical URL -->
-<link rel="canonical" href={canonicalURL} />
-
-<!-- Primary Meta Tags -->
+<!-- Primary Meta -->
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
+<meta name="author" content="Nervux Neurotechnology" />
+<meta
+  name="keywords"
+  content="neuroestimulación, salud mental, EMT, Querétaro, tratamientos cognitivos"
+/>
+
+<!-- Open Graph / Facebook / LinkedIn -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={fullImage} />
+<meta property="og:url" content={canonicalURL.toString()} />
+<meta property="og:site_name" content={SITE_TITLE} />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={fullImage} />
+
+<!-- Apple Safari / Mobile -->
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta
+  name="apple-mobile-web-app-status-bar-style"
+  content="black-translucent"
+/>
+<meta name="apple-mobile-web-app-title" content={SITE_TITLE} />
