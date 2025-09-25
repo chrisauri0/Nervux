@@ -2,6 +2,35 @@
 git clone https://github.com/chrisauri0/Nervux.git
 ```
 
+
+flowchart TB
+    %% Personas / Clientes
+    U[Usuario / Jugador\n(PC, Móvil, TV, Web)] --> C1[Cliente GeForce NOW\n(App/Web/TV)]
+    C1 -->|Envia input\nRecibe video| CP[Control Plane / Orquestador]
+
+    %% Control Plane
+    CP -->|Asigna sesión| GH[Game Session Host\n(GPU Instance)]
+    CP -->|Gestión subscripciones\nColas, Auth| AUTH[Auth & Billing Service]
+    CP -->|Telemetry / Logs| MON[Monitoring & Analytics]
+
+    %% Game Session Host
+    GH -->|Frames brutos| ENC[Media Pipeline / Encoder\n(H.264/AV1 RTP/WebRTC)]
+    ENC -->|Video/audio stream| C1
+    C1 -->|Input (teclas, joystick)| GH
+
+    %% Storage
+    GH --> ST[Storage Distribuido / NVMesh\n(Imágenes de juegos, DLC)]
+    
+    %% Sistemas externos
+    CP --> PAY[Payment System]
+    CP --> PUB[Publisher APIs / Launchers\n(Steam, Epic)]
+    ENC --> CDN[CDN / Edge Nodes\nDistribución de assets]
+
+    %% Relaciones
+    MON --> CP
+    ST --> GH
+
+
 # NERVUX Neurotechnology
 
 Sitio web oficial de NERVUX Neurotechnology, empresa especializada en neurotecnologías para la optimización de la salud cerebral. Ofrecemos información sobre tratamientos innovadores como la Estimulación Magnética Transcraneal (EMT), testimonios, preguntas frecuentes y contacto.
